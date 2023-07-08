@@ -16,7 +16,7 @@
             if (has_custom_logo() && function_exists('the_custom_logo')) {
                 the_custom_logo();
             } else {
-                echo '<a href="' . home_url() . '">' . '<img src="' . get_theme_file_uri('assets/img/Logo.svg') . '" class="CustomTheme-logo" width="28" height="28" alt="Logo CustomTheme"/>' . '</a>';
+                echo '<a href="' . home_url() . '">' . '<img src="' . get_theme_file_uri('assets/img/logo.png') . '" class="CustomTheme-logo" width="28" height="28" alt="Logo CustomTheme"/>' . '</a>';
             }
             ?>
         </div>
