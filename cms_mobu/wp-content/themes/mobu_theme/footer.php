@@ -26,7 +26,6 @@
 
 <?php
 
-get_template_part('template-parts/modal', 'privacy-policy');
 wp_footer();
 
 ?>

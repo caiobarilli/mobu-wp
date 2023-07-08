@@ -19,27 +19,9 @@ get_header();
 
 ?>
 
-<section id="page_blog">
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <?php get_template_part('searchform'); ?>
-            </div>
-        </div>
-    </header>
+<main>
 
-    <div class="sticky-post">
-        <div class="container">
-            <?php get_template_part('loop-sticky-post'); ?>
-        </div>
-    </div>
-
-    <div id="loop-posts">
-        <div class="container">
-            <?php get_template_part('loop'); ?>
-        </div>
-    </div>
-</section>
+</main>
 
 <?php
 

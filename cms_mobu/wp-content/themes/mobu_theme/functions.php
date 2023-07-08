@@ -16,32 +16,38 @@
 
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_stylesheet_directory() . '/inc/plugins.php';
-// require_once get_stylesheet_directory() . '/inc/customizer.php';
+
+/*------------------------------------*\
+    Constansts
+\*------------------------------------*/
+
+define('THEME_VERSION', wp_get_theme()->get('Version'));
 
 /*------------------------------------*\
     Theme
 \*------------------------------------*/
 
-define('THEME_VERSION', wp_get_theme()->get('Version'));
-
-// Theme Support
+/**
+ *
+ * Theme Support
+ *
+ */
 if (function_exists('add_theme_support')) {
     add_theme_support('menus'); // Add Menu Support
     add_theme_support('custom-logo'); // Add Custom Logo Support
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('post-sticky', 350, 1020, true);
-    add_image_size('post-thumbnail', 440, 300, true);
-    add_image_size('post-single', 300, 1920, true);
-    add_image_size('post-search', 150, 200, true);
-    add_image_size('thumbnail-product', 150, 150, true);
 
     // Localisation Support
     // load_theme_textdomain('mobu_theme', get_template_directory() . '/languages');
 }
 
-// Navigation: Main Menu
+/**
+ *
+ * Navigation: Main Menu
+ *
+ */
 function main_nav()
 {
     wp_nav_menu(
@@ -58,7 +64,11 @@ function main_nav()
     );
 }
 
-// Register Navigation
+/**
+ *
+ * Register Navigation
+ *
+ */
 function mobu_theme_menu()
 {
     register_nav_menus(array(
@@ -70,94 +80,11 @@ function mobu_theme_menu()
     Functions
 \*------------------------------------*/
 
-// Load More
-function loadmore_ajax_handler()
-{
-
-    $sticky = get_option('sticky_posts');
-    $args = json_decode(wp_unslash($_POST['query']), true);
-    $args['showposts'] = '3';
-    $args['post__not_in'] = $sticky;
-    $args['ignore_sticky_posts'] = 1;
-    $args['paged'] = $_POST['page'] + 1;
-
-    $wp_query = new WP_Query($args);
-
-    if ($wp_query->have_posts()) :
-        while ($wp_query->have_posts()) : $wp_query->the_post();
-            get_template_part('template-parts/content');
-        endwhile;
-    endif;
-
-    wp_reset_query();
-    wp_reset_postdata();
-    wp_die();
-}
-
-// Load More Search
-function loadmore_search_ajax_handler()
-{
-    $args = json_decode(wp_unslash($_POST['query']), true);
-    $args['s']      = $_POST['s_query'];
-    $args['order']  = $_POST['order'];
-    $args['paged']  = $_POST['page'] + 1;
-    $args['showposts'] = '5';
-
-    $wp_query = new WP_Query($args);
-
-    if ($wp_query->have_posts()) :
-        while ($wp_query->have_posts()) : $wp_query->the_post();
-            get_template_part('template-parts/content', 'search');
-        endwhile;
-    endif;
-
-    wp_reset_query();
-    wp_reset_postdata();
-    wp_die();
-}
-
-// Load More Category
-function loadmore_category_ajax_handler()
-{
-    $args = json_decode(wp_unslash($_POST['query']), true);
-    $args['showposts'] = '4';
-    $args['category__in']  = $_POST['category'];
-    $args['paged']  = $_POST['page'] + 1;
-    $wp_query = new WP_Query($args);
-
-    if ($wp_query->have_posts()) :
-        while ($wp_query->have_posts()) : $wp_query->the_post();
-            get_template_part('template-parts/content', 'search');
-        endwhile;
-    endif;
-
-    wp_reset_query();
-    wp_reset_postdata();
-    wp_die();
-}
-
-// Load More Tags
-function loadmore_tags_ajax_handler()
-{
-    $args = json_decode(wp_unslash($_POST['query']), true);
-    $args['showposts'] = '4';
-    $args['tag']  = $_POST['tag'];
-    $args['paged']  = $_POST['page'] + 1;
-
-    $wp_query = new WP_Query($args);
-
-    if ($wp_query->have_posts()) :
-        while ($wp_query->have_posts()) : $wp_query->the_post();
-            get_template_part('template-parts/content', 'search');
-        endwhile;
-    endif;
-
-    wp_reset_query();
-    wp_reset_postdata();
-    wp_die();
-}
-
-// Load Scripts
+/**
+ *
+ * Load Scripts
+ *
+ */
 function header_scripts()
 {
 
@@ -167,31 +94,28 @@ function header_scripts()
 
         global $wp_query;
 
-        $loadmoreParams = array(
-            'ajaxurl'       => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-            'posts'         => json_encode($wp_query->query_vars),
-            'current_page'  => get_query_var('paged') ? get_query_var('paged') : 1,
-            'max_page'      => $wp_query->max_num_pages,
-        );
-
         wp_register_script('mobu_theme_scripts', get_template_directory_uri() . '/dist/main.js', array(), THEME_VERSION); // Custom scripts
-        wp_localize_script('mobu_theme_scripts', 'loadmore_params', $loadmoreParams);
-        wp_localize_script('mobu_theme_scripts', 'loadmore_search_params', $loadmoreParams);
-        wp_localize_script('mobu_theme_scripts', 'loadmore_category_params', $loadmoreParams);
-        wp_localize_script('mobu_theme_scripts', 'loadmore_tags_params', $loadmoreParams);
         wp_enqueue_script('mobu_theme_scripts'); // Enqueue it!
 
     }
 }
 
-// Load Styles
+/**
+ *
+ * Load Styles
+ *
+ */
 function public_assets()
 {
     wp_register_style('mobu_theme_styles', get_template_directory_uri() . '/dist/main.css', array(), THEME_VERSION);
     wp_enqueue_style('mobu_theme_styles'); // Enqueue it!
 }
 
-// Custom Excerpt
+/**
+ *
+ * Custom Excerpt
+ *
+ */
 function post_excerpt($limit)
 {
     $my_excerpt = apply_filters('the_excerpt', get_the_excerpt());
@@ -209,25 +133,41 @@ function post_excerpt($limit)
     echo $excerpt;
 }
 
-// Custom Excerpt Length (the_excerpt)
+/**
+ *
+ * Custom Excerpt Length (the_excerpt)
+ *
+ */
 function custom_excerpt_length($length)
 {
     return 45;
 }
 
-// Wp Login: change login headertitle
+/**
+ *
+ * Wp Login: change login headertitle
+ *
+ */
 function change_login_headertitle()
 {
     return get_option('blogname');
 }
 
-// Wp Login: change login headerurl
+/**
+ *
+ * Wp Login: change login headerurl
+ *
+ */
 function change_login_headerurl($value)
 {
     return home_url();
 }
 
-// Wp Login: change login image
+/**
+ *
+ * Wp Login: change login image
+ *
+ */
 function change_logo_login_head()
 {
     echo '<style>
@@ -237,7 +177,11 @@ function change_logo_login_head()
         </style>';
 }
 
-// Wp Customizer Remove Sections
+/**
+ *
+ * Wp Customizer Remove Sections
+ *
+ */
 function customizer_removes($wp_customize)
 {
     $wp_customize->remove_section('static_front_page');
@@ -246,7 +190,11 @@ function customizer_removes($wp_customize)
     $wp_customize->remove_panel('widgets');
 }
 
-// Change the custom logo
+/**
+ *
+ * Change the custom logo
+ *
+ */
 function mobu_theme_custom_logo()
 {
 
@@ -280,13 +228,21 @@ function mobu_theme_custom_logo()
     return $html;
 }
 
-// Remove Admin bar
+/**
+ *
+ * Remove Admin bar
+ *
+ */
 function remove_admin_bar()
 {
     return false;
 }
 
-// add defer attribute to enqueued script
+/**
+ *
+ * add defer attribute to enqueued script
+ *
+ */
 function script_defer_attribute($tag, $handle, $src)
 {
     if ($handle === 'mobu_theme_scripts') {
@@ -298,20 +254,16 @@ function script_defer_attribute($tag, $handle, $src)
     return $tag;
 }
 
-// Remove Global styles from WordPress
+/**
+ *
+ * Remove Global styles from WordPress
+ *
+ */
 function remove_global_styles()
 {
     wp_dequeue_style('global-styles');
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('classic-theme-styles');
-}
-
-function send_smtp_email($phpmailer)
-{
-    $phpmailer->isSMTP();
-    $phpmailer->Host       = 'mailhog';
-    $phpmailer->Port       = 1025;
-    $phpmailer->SMTPAuth   = false;
 }
 
 /*------------------------------------*\
@@ -334,14 +286,10 @@ add_filter('wpcf7_autop_or_not', '__return_false'); // Remove p tag cf7
 // Add Actions
 add_action('init', 'mobu_theme_menu'); // Add site menu
 add_action('init', 'header_scripts'); // Add Custom Scripts to wp_head
-
 add_action('login_head', 'change_logo_login_head'); // Change admin logo
-
 add_action('wp_enqueue_scripts', 'public_assets', 99); // Add Theme Stylesheet
 add_action('wp_enqueue_scripts', 'remove_global_styles', 99); // Remove Global styles from WordPress
-
 add_action('customize_register', 'customizer_removes', 50); // Remove static_front_page from Wp Customizer
-
 add_action('wp_ajax_loadmore', 'loadmore_ajax_handler'); // Authenticated users
 add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler'); // Non-authenticated users
 add_action('wp_ajax_loadmore_search', 'loadmore_search_ajax_handler'); // Authenticated users
@@ -350,7 +298,6 @@ add_action('wp_ajax_loadmore_category', 'loadmore_category_ajax_handler'); // Au
 add_action('wp_ajax_nopriv_loadmore_category', 'loadmore_category_ajax_handler'); // Non-authenticated users
 add_action('wp_ajax_loadmore_tags', 'loadmore_tags_ajax_handler'); // Authenticated users
 add_action('wp_ajax_nopriv_loadmore_tags', 'loadmore_tags_ajax_handler'); // Non-authenticated users
-
 add_action('phpmailer_init', 'send_smtp_email'); // SMTP MailHog
 
 // Remove Actions
