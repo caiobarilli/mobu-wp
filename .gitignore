@@ -1,0 +1,18 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#wordpress
+/cms_mobu/*.php
+/cms_mobu/*.html
+/cms_mobu/*.txt
+/cms_mobu/*.htaccess
+/cms_mobu/wp-admin/
+/cms_mobu/wp-includes/
+/cms_mobu/wp-content/*.php
+/cms_mobu/wp-content/upgrade/
+/cms_mobu/wp-content/languages/
+/cms_mobu/wp-content/uploads/
+/cms_mobu/wp-content/plugins/
+/cms_mobu/wp-content/themes/twentytwenty
+/cms_mobu/wp-content/themes/twentytwentyone
+/cms_mobu/wp-content/themes/twentytwentytwo
+/cms_mobu/wp-content/themes/twentytwentythree
