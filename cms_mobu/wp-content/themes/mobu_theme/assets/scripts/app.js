@@ -4,6 +4,10 @@ import * as bootstrap from 'bootstrap'
 // Import our custom CSS
 import '../sass/app.scss'
 
-import './nav'
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
+// Home Scripts
 import './home'

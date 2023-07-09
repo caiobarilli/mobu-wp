@@ -94,7 +94,7 @@ function header_scripts()
 
         global $wp_query;
 
-        wp_register_script('mobu_theme_scripts', get_template_directory_uri() . '/dist/main.js', array(), THEME_VERSION); // Custom scripts
+        wp_register_script('mobu_theme_scripts', get_template_directory_uri() . '/dist/app.js', array(), THEME_VERSION); // Custom scripts
         wp_enqueue_script('mobu_theme_scripts'); // Enqueue it!
 
     }
@@ -107,7 +107,7 @@ function header_scripts()
  */
 function public_assets()
 {
-    wp_register_style('mobu_theme_styles', get_template_directory_uri() . '/dist/main.css', array(), THEME_VERSION);
+    wp_register_style('mobu_theme_styles', get_template_directory_uri() . '/dist/app.css', array(), THEME_VERSION);
     wp_enqueue_style('mobu_theme_styles'); // Enqueue it!
 }
 
