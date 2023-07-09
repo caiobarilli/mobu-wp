@@ -172,7 +172,7 @@ function change_logo_login_head()
 {
     echo '<style>
             .login .privacy-policy-page-link { display: none; }
-            .login h1 a { background-image: url(' .  get_template_directory_uri() . '/assets/img/Logo.svg' . ');
+            .login h1 a { background-image: url(' .  get_template_directory_uri() . '/assets/img/logo.png' . ');
             background-size: contain; background-position: center center; width: 210px; }
         </style>';
 }

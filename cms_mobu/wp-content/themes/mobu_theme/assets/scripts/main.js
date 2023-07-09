@@ -1,4 +1,3 @@
-
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 
@@ -6,3 +5,5 @@ import * as bootstrap from 'bootstrap'
 import '../sass/app.scss'
 
 import './nav'
+
+import './home'

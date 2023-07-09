@@ -1,6 +1,5 @@
-
 // Import all of Bootstrap's CSS
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 // Bootstrap breakpoints
 $grid-breakpoints: (
@@ -9,15 +8,13 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px
+  xxl: 1400px,
 );
 
-$transition-collapse:         height .64s ease;
-$transition-collapse-width:   width .64s ease;
+$transition-collapse: height 0.64s ease;
+$transition-collapse-width: width 0.64s ease;
 
-
-@include media-breakpoint-down(lg)
-{
+@include media-breakpoint-down(lg) {
   .collapse {
     &:not(.show) {
       width: 0;
@@ -37,19 +34,15 @@ $transition-collapse-width:   width .64s ease;
   }
 }
 
-.form-control
-{
-  &:focus
-  {
+.form-control {
+  &:focus {
     box-shadow: none;
   }
 }
 
-.navbar-toggler
-{
+.navbar-toggler {
   border: 0;
-  &:focus
-  {
+  &:focus {
     box-shadow: none;
   }
 }
