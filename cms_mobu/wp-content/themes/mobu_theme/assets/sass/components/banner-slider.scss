@@ -1,7 +1,6 @@
 
 header
 {
-
     .header-slider
     {
         .swiper-slide
@@ -39,17 +38,50 @@ header
 
                     h1
                     {
-                        font-size: 6.7rem;
-                        font-weight: 700;
-                        line-height: 1.2;
-                        margin-bottom: 20px;
-                        color: #fff;
                         width: 850px;
                         max-width: 100%;
+
+                        @include media-breakpoint-down(lg)
+                        {
+                            width: fit-content;
+                        }
+
+                        @include media-breakpoint-down(md)
+                        {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            width: 315px;
+                        }
+
+                        strong
+                        {
+                            font-size: 6.7rem;
+                            font-weight: 700;
+                            line-height: 1.2;
+                            margin-bottom: 20px;
+                            color: #fff;
+
+                            @include media-breakpoint-down(lg)
+                            {
+                                font-size: 4rem;
+                            }
+
+                            @include media-breakpoint-down(md)
+                            {
+                                font-size: 2.5rem;
+                            }
+
+                            @include media-breakpoint-down(sm)
+                            {
+                                width: 200px;
+                            }
+                        }
+
                     }
                 }
             }
-
         }
 
         .wrap-pagination

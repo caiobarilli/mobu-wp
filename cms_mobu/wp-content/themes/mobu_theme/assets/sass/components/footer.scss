@@ -1,11 +1,16 @@
-footer {
+
+footer
+{
     padding: 60px 0 40px;
     background-color: $black;
 
-    .logo-mobu
+    @include media-breakpoint-up(md)
     {
-        margin-top: -50px;
-        margin-right: 50px;
+        .logo-mobu
+        {
+            margin-top: -50px;
+            margin-right: 50px;
+        }
     }
 
     .wrap_footer
@@ -18,4 +23,29 @@ footer {
         align-items: center;
     }
 
+    @include media-breakpoint-down(md)
+    {
+        #social-menu
+        {
+            margin-top: 30px;
+
+            .social-menu
+            {
+                .menu-item
+                {
+                    a
+                    {
+                        padding: 0;
+                        width: 32px;
+                        height: 32px;
+                        img
+                        {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

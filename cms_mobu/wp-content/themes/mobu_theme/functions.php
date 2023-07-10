@@ -138,6 +138,11 @@ function public_assets()
 
 /**
  * Custom Excerpt
+ *
+ * Esta função retorna um trecho personalizado do conteúdo do post.
+ *
+ * @param int $limit O limite máximo de palavras para o trecho.
+ * @return void
  */
 function post_excerpt($limit)
 {
@@ -154,6 +159,25 @@ function post_excerpt($limit)
     $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
 
     echo $excerpt;
+}
+
+/**
+ * Custom Title
+ *
+ * Esta função retorna um título personalizado do post.
+ *
+ * @param int $limit O limite máximo de caracteres para o título.
+ * @return string O título personalizado.
+ */
+function title_excerpt($limit)
+{
+    $title = get_the_title();
+
+    if (mb_strlen($title) > $limit) {
+        $title = mb_substr($title, 0, $limit) . '...';
+    }
+
+    return $title;
 }
 
 /**

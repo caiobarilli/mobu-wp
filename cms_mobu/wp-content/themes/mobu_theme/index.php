@@ -49,7 +49,9 @@ get_header();
                             </div>
                             <div class="title_banner">
                                 <h1>
-                                    <?php _e(get_the_title(), 'mobu_theme') ?>
+                                    <strong>
+                                        <?php _e(get_the_title(), 'mobu_theme') ?>
+                                    </strong>
                                 </h1>
                             </div>
                         </div>

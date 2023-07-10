@@ -23,9 +23,14 @@
             </div>
 
             <?php
-            main_nav();
-            social_nav();
+
+            if (!wp_is_mobile()) :
+                main_nav();
+                social_nav();
+            endif;
+
             ?>
+
         </div>
     </div>
 </nav>
