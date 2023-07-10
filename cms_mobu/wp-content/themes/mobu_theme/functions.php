@@ -37,6 +37,7 @@ if (function_exists('add_theme_support')) {
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
+    add_image_size('logo-mobu', 256, 54, true);
     add_image_size('post-banner-slider', 1920, 1040, true);
 
     // Localization Support
@@ -52,11 +53,11 @@ function main_nav()
 {
     wp_nav_menu(
         array(
-            'theme_location'  => 'header-menu',
+            'theme_location'  => 'header',
             'depth'           => 1, // 1 = no dropdowns, 2 = with dropdowns.
             'container'       => 'div',
             'container_class' => 'collapse collapse-horizontal',
-            'container_id'    => 'menu',
+            'container_id'    => 'main',
             'menu_class'      => 'navbar-nav',
         ),
     );
@@ -215,32 +216,38 @@ function customizer_removes($wp_customize)
 }
 
 /**
- * Change the custom logo
+ * Retrieve the custom logo.
+ * @return string|null The custom logo HTML or null if no custom logo is set.
  */
 function mobu_theme_custom_logo()
 {
-    $custom_logo_id = get_theme_mod('custom_logo');
+    $id = get_theme_mod('custom_logo');
 
-    if ($custom_logo_id) {
+    if ($id) {
 
-        $custom_logo_attr = array(
-            'class'    => 'MobuTheme-logo',
+        $attr = array(
+            'class'    => 'logo-mobu',
             'itemprop' => 'logo',
         );
 
-        $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
-        if (empty($image_alt)) {
-            $custom_logo_attr['alt'] = get_bloginfo('name', 'display');
-        }
+        $alt = get_post_meta($id, '_wp_attachment_image_alt', true);
+
+        if (empty($alt)) :
+            $attr['alt'] = get_bloginfo('name', 'display');
+        endif;
+
+        $size = 'logo-mobu';
 
         $html = sprintf(
             '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
             home_url(),
-            wp_get_attachment_image($custom_logo_id, 'full', false, $custom_logo_attr)
+            wp_get_attachment_image($id, $size, false, $attr)
         );
+
+        return $html;
     }
 
-    return $html;
+    return null;
 }
 
 /**

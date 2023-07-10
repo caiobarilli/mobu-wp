@@ -7,12 +7,22 @@
     height: 85px;
 
     .wrap-content {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
 
-      @import 'nav-toogler';
+        @include media-breakpoint-up(lg) {
+            #main-menu
+            {
+                #header-menu
+                {
+
+                }
+            }
+        }
+
+        @import 'nav-toogler';
     }
 
     @import 'nav-icon';
