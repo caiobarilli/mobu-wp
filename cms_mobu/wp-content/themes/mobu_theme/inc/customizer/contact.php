@@ -8,7 +8,7 @@
 $wp_customize->add_panel('panel_contact_page', array(
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
-    'title'          => __('Configurações da página Contato', 'mobu_theme'),
+    'title'          => __('Configurações da Sessão: Contato', 'mobu_theme'),
     'description'    => '',
 ));
 

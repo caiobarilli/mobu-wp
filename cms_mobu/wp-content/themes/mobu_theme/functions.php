@@ -15,6 +15,7 @@
 \*------------------------------------*/
 
 require_once get_stylesheet_directory() . '/inc/plugins.php';
+require_once get_stylesheet_directory() . '/inc/customizer.php';
 
 /*------------------------------------*\
     Constansts
@@ -181,14 +182,6 @@ function title_excerpt($limit)
 }
 
 /**
- * Custom Excerpt Length (the_excerpt)
- */
-function custom_excerpt_length($length)
-{
-    return 45;
-}
-
-/**
  * Wp Login: change login headertitle
  */
 function change_login_headertitle()
@@ -307,7 +300,6 @@ add_filter('login_headerurl', 'change_login_headerurl'); // Change admin logo ur
 add_filter('get_custom_logo', 'mobu_theme_custom_logo'); // Change admin logo
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('script_loader_tag', 'script_defer_attribute', 10, 3); // Add defer to enqueued script
-add_filter('excerpt_length', 'custom_excerpt_length'); // Custom Excerpt Length (the_excerpt)
 add_filter('wpcf7_autop_or_not', '__return_false'); // Remove p tag cf7
 add_filter('wp_nav_menu_objects', 'social_nav_svg_icons', 10, 2);
 
@@ -322,15 +314,6 @@ add_action('login_head', 'change_logo_login_head'); // Change admin logo
 add_action('wp_enqueue_scripts', 'public_assets', 99); // Add Theme Stylesheet
 add_action('wp_enqueue_scripts', 'remove_global_styles', 100); // Remove Global styles from WordPress
 add_action('customize_register', 'customizer_removes', 50); // Remove static_front_page from Wp Customizer
-add_action('wp_ajax_loadmore', 'loadmore_ajax_handler'); // Authenticated users
-add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler'); // Non-authenticated users
-add_action('wp_ajax_loadmore_search', 'loadmore_search_ajax_handler'); // Authenticated users
-add_action('wp_ajax_nopriv_loadmore_search', 'loadmore_search_ajax_handler'); // Non-authenticated users
-add_action('wp_ajax_loadmore_category', 'loadmore_category_ajax_handler'); // Authenticated users
-add_action('wp_ajax_nopriv_loadmore_category', 'loadmore_category_ajax_handler'); // Non-authenticated users
-add_action('wp_ajax_loadmore_tags', 'loadmore_tags_ajax_handler'); // Authenticated users
-add_action('wp_ajax_nopriv_loadmore_tags', 'loadmore_tags_ajax_handler'); // Non-authenticated users
-add_action('phpmailer_init', 'send_smtp_email'); // SMTP MailHog
 
 // Remove Actions
 remove_action('wp_head', 'print_emoji_detection_script', 7); // Remove wp emoji

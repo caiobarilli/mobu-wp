@@ -12,6 +12,7 @@ require_once get_stylesheet_directory() . '/inc/customizer-repeater/functions.ph
 
 function mobu_theme_customizer($wp_customize)
 {
+    require get_template_directory() . '/inc/customizer/about.php';
     require get_template_directory() . '/inc/customizer/contact.php';
 }
 
