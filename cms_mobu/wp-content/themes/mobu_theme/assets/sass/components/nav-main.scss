@@ -23,9 +23,9 @@
             margin-right: 55px;
             margin-top: -10px;
 
-            @include media-breakpoint-down(lx)
+            @include media-breakpoint-down(xl)
             {
-                margin-right: 15px;
+                margin-right: 10px;
             }
 
             a
@@ -49,7 +49,7 @@
 
             @include media-breakpoint-down(xl)
             {
-                width: calc(100% - 510px);
+                width: calc(100% - 500px);
             }
 
             @include media-breakpoint-down(lg)
@@ -98,9 +98,9 @@
         {
             margin-left: 25px;
 
-            @include media-breakpoint-up(lg)
+            @include media-breakpoint-down(xl)
             {
-                margin-left: 15px;
+                margin-left: 5px;
             }
 
             .social-menu

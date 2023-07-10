@@ -11969,7 +11969,11 @@ body {
   margin: 0;
   margin-right: 55px;
   margin-top: -10px;
-  margin-right: 15px;
+}
+@media (max-width: 1199.98px) {
+  #main-nav .wrap-content .navbar-brand {
+    margin-right: 10px;
+  }
 }
 #main-nav .wrap-content .navbar-brand a img {
   max-width: 100%;
@@ -11985,7 +11989,7 @@ body {
 }
 @media (max-width: 1199.98px) {
   #main-nav .wrap-content #header-menu {
-    width: calc(100% - 510px);
+    width: calc(100% - 500px);
   }
 }
 @media (max-width: 991.98px) {
@@ -12023,9 +12027,9 @@ body {
 #main-nav .wrap-content #social-menu {
   margin-left: 25px;
 }
-@media (min-width: 992px) {
+@media (max-width: 1199.98px) {
   #main-nav .wrap-content #social-menu {
-    margin-left: 15px;
+    margin-left: 5px;
   }
 }
 #main-nav .wrap-content #social-menu .social-menu .menu-item a {
