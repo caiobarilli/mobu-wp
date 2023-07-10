@@ -11912,6 +11912,8 @@ html {
 html,
 body {
   height: 100%;
+  background: #000000;
+  color: #ffffff;
 }
 
 body {

@@ -1,16 +1,11 @@
+import "jquery-smooth-scroll";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 
-// Jquery Smooth Scrolll
-import "jquery-smooth-scroll";
-
 /**
- * Home page scripts
+ * Smooth scroll
  */
 $.when($.ready).then(function () {
-  /**
-   * Smooth scroll
-   */
   let scrollDown = $("a.scroll-down");
   if (scrollDown) {
     scrollDown.smoothScroll({
@@ -55,16 +50,21 @@ $.when($.ready).then(function () {
       preventDefault: true,
     });
   }
+});
 
+/**
+ * Home page scripts
+ */
+$.when($.ready).then(function () {
+  /**
+   * Header slider
+   */
   const swiper = new Swiper(".header-slider", {
     modules: [Navigation, Pagination],
 
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
-      // renderBullet: function (index, className) {
-      // return '<span class="' + className + '">' + (index + 1) + "</span>";
-      // },
     },
   });
 });
