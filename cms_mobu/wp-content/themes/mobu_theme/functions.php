@@ -45,50 +45,41 @@ if (function_exists('add_theme_support')) {
 }
 
 /**
- *
  * Navigation: Main Menu
- *
  */
 function main_nav()
 {
     wp_nav_menu(
         array(
             'theme_location'  => 'header',
-            'depth'           => 1, // 1 = no dropdowns, 2 = with dropdowns.
             'container'       => 'div',
-            'container_class' => 'collapse collapse-horizontal',
-            'container_id'    => 'main',
-            'menu_class'      => 'navbar-nav',
+            'container_id'    => 'header-menu',
+            'menu_class'      => 'header-menu',
         ),
     );
 }
 
 /**
- *
  * Navigation: Social Menu
- *
  */
 function social_nav()
 {
     wp_nav_menu(
         array(
-            'theme_location'  => 'social-menu',
-            'depth'           => 1, // 1 = no dropdowns, 2 = with dropdowns.
+            'theme_location'  => 'social',
             'container'       => 'div',
             'container_id'    => 'social-menu',
-            'menu_class'      => 'social-nav',
-            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            'menu_class'      => 'social-menu',
         ),
 
     );
 }
 
 /**
- * Navigation: Social Menu SVG Icons
+ * Get custom field from menu item (social menu)
  */
 function social_nav_svg_icons($items)
 {
-
     foreach ($items as &$item) {
         $icon = get_field('icone_social_menu', $item);
 
@@ -106,8 +97,8 @@ function social_nav_svg_icons($items)
 function mobu_theme_menu()
 {
     register_nav_menus(array(
-        'header-menu'  => __('Menu Principal', 'mobu_theme'), // Main Navigation
-        'social-menu'  => __('Social Menu', 'mobu_theme'), // Social Navigation
+        'header'  => __('Principal', 'mobu_theme'), // Main Navigation
+        'social'  => __('Social', 'mobu_theme'), // Social Navigation
     ));
 }
 
