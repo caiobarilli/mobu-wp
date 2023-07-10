@@ -19,23 +19,38 @@ get_header();
 
 ?>
 
-<main>
+<header>
     <div class="container">
         <div class="swiper header-slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
+
+                <div class="swiper-slide">
+                    <div class="wrap_banner">
+                        <div class="title_banner">
+                            <h1>
+                                <?php _e('Title', 'mobu_theme') ?>
+                            </h1>
+                        </div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
+</header>
+
+<main>
+
+    <section class="about"></section>
+    <section class="course"></section>
+    <section class="cta"></section>
+    <section class="team"></section>
+    <section class="plans"></section>
+    <section class="blog"></section>
+    <section class="contato"></section>
+
 </main>
 
 <?php

@@ -32,23 +32,23 @@ function mobu_theme_require_plugins()
         //     'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
         // ),
 
-        // array(
-        //     'name'               => 'Advanced Custom Fields',
-        //     'slug'               => 'advanced-custom-fields',
-        //     'source'             => get_stylesheet_directory() . '/plugins/advanced-custom-fields.5.9.5.zip',
-        //     'required'           => true, // this plugin is required
-        //     'external_url'       => 'https://br.wordpress.org/plugins/advanced-custom-fields/', // page of my plugin
-        //     'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
-        // ),
+        array(
+            'name'               => 'Advanced Custom Fields',
+            'slug'               => 'advanced-custom-fields',
+            'source'             => get_stylesheet_directory() . '/plugins/advanced-custom-fields.5.9.5.zip',
+            'required'           => true, // this plugin is required
+            'external_url'       => 'https://br.wordpress.org/plugins/advanced-custom-fields/', // page of my plugin
+            'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
+        ),
 
-        // array(
-        //     'name'               => 'Custom Post Type UI',
-        //     'slug'               => 'custom-post-type-ui',
-        //     'source'             => get_stylesheet_directory() . '/plugins/custom-post-type-ui.1.8.2.zip',
-        //     'required'           => true, // this plugin is required
-        //     'external_url'       => 'https://br.wordpress.org/plugins/custom-post-type-ui/', // page of my plugin
-        //     'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
-        // ),
+        array(
+            'name'               => 'Custom Post Type UI',
+            'slug'               => 'custom-post-type-ui',
+            'source'             => get_stylesheet_directory() . '/plugins/custom-post-type-ui.1.8.2.zip',
+            'required'           => true, // this plugin is required
+            'external_url'       => 'https://br.wordpress.org/plugins/custom-post-type-ui/', // page of my plugin
+            'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
+        ),
 
         array(
             'name'               => 'Safe Svg',

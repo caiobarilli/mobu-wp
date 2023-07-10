@@ -1,6 +1,10 @@
 #main-nav {
   display: flex;
   justify-content: center;
+  background: url('/assets/img/bg-menu.png');
+
+  width: 100%;
+  height: 85px;
 
   .navbar-brand {
     z-index: $layer-2;
@@ -73,4 +77,41 @@
   }
 
   @import 'nav-icon';
+}
+
+#social-menu
+{
+    .social-nav
+    {
+        padding: 0;
+
+        .menu-item
+        {
+            list-style-type: none;
+            display: inline-block;
+            margin-right: 10px;
+
+            a
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                background: $white;
+                position: relative;
+                width: 62px;
+                height: 62px;
+                padding: 10px;
+                border-radius: 100px;
+
+                img
+                {
+                    width: 32px;
+                    height: 32px;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
 }

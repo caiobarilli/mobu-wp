@@ -14,7 +14,6 @@
     External Modules/Files
 \*------------------------------------*/
 
-require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_stylesheet_directory() . '/inc/plugins.php';
 
 /*------------------------------------*\
@@ -53,26 +52,60 @@ function main_nav()
     wp_nav_menu(
         array(
             'theme_location'  => 'header-menu',
-            'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+            'depth'           => 1, // 1 = no dropdowns, 2 = with dropdowns.
             'container'       => 'div',
             'container_class' => 'collapse collapse-horizontal',
             'container_id'    => 'menu',
             'menu_class'      => 'navbar-nav',
-            'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-            'walker'          => new WP_Bootstrap_Navwalker(),
         ),
     );
 }
 
 /**
  *
- * Register Navigation
+ * Navigation: Social Menu
  *
+ */
+function social_nav()
+{
+    wp_nav_menu(
+        array(
+            'theme_location'  => 'social-menu',
+            'depth'           => 1, // 1 = no dropdowns, 2 = with dropdowns.
+            'container'       => 'div',
+            'container_id'    => 'social-menu',
+            'menu_class'      => 'social-nav',
+            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        ),
+
+    );
+}
+
+/**
+ * Navigation: Social Menu SVG Icons
+ */
+function social_nav_svg_icons($items)
+{
+
+    foreach ($items as &$item) {
+        $icon = get_field('icone_social_menu', $item);
+
+        if ($icon) {
+            $item->title = ' <img src="' . esc_url($icon['url']) . '" alt="' . esc_attr($icon['alt']) . '">';
+        }
+    }
+
+    return $items;
+}
+
+/**
+ * Register Navigation
  */
 function mobu_theme_menu()
 {
     register_nav_menus(array(
         'header-menu'  => __('Menu Principal', 'mobu_theme'), // Main Navigation
+        'social-menu'  => __('Social Menu', 'mobu_theme'), // Social Navigation
     ));
 }
 
@@ -81,9 +114,7 @@ function mobu_theme_menu()
 \*------------------------------------*/
 
 /**
- *
  * Load Scripts
- *
  */
 function header_scripts()
 {
@@ -101,9 +132,7 @@ function header_scripts()
 }
 
 /**
- *
  * Load Styles
- *
  */
 function public_assets()
 {
@@ -112,9 +141,7 @@ function public_assets()
 }
 
 /**
- *
  * Custom Excerpt
- *
  */
 function post_excerpt($limit)
 {
@@ -134,9 +161,7 @@ function post_excerpt($limit)
 }
 
 /**
- *
  * Custom Excerpt Length (the_excerpt)
- *
  */
 function custom_excerpt_length($length)
 {
@@ -144,9 +169,7 @@ function custom_excerpt_length($length)
 }
 
 /**
- *
  * Wp Login: change login headertitle
- *
  */
 function change_login_headertitle()
 {
@@ -154,9 +177,7 @@ function change_login_headertitle()
 }
 
 /**
- *
  * Wp Login: change login headerurl
- *
  */
 function change_login_headerurl($value)
 {
@@ -164,13 +185,14 @@ function change_login_headerurl($value)
 }
 
 /**
- *
  * Wp Login: change login image
- *
  */
 function change_logo_login_head()
 {
     echo '<style>
+            body { background-color: #080808 !important; }
+            .wp-core-ui .button-primary { background: #fb9a00; border-color: #fb9a00; color: #fff; }
+            .login form { background: #c86e00; border: 0; color: white; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
             .login .privacy-policy-page-link { display: none; }
             .login h1 a { background-image: url(' .  get_template_directory_uri() . '/assets/img/logo.png' . ');
             background-size: contain; background-position: center center; width: 210px; }
@@ -178,9 +200,7 @@ function change_logo_login_head()
 }
 
 /**
- *
  * Wp Customizer Remove Sections
- *
  */
 function customizer_removes($wp_customize)
 {
@@ -191,32 +211,24 @@ function customizer_removes($wp_customize)
 }
 
 /**
- *
  * Change the custom logo
- *
  */
 function mobu_theme_custom_logo()
 {
-
-    // The logo
     $custom_logo_id = get_theme_mod('custom_logo');
 
-    // If has logo
     if ($custom_logo_id) {
 
-        // Attr
         $custom_logo_attr = array(
-            'class'    => 'CustomTheme-logo',
+            'class'    => 'MobuTheme-logo',
             'itemprop' => 'logo',
         );
 
-        // Image alt
         $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
         if (empty($image_alt)) {
             $custom_logo_attr['alt'] = get_bloginfo('name', 'display');
         }
 
-        // Get the image
         $html = sprintf(
             '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
             home_url(),
@@ -224,14 +236,11 @@ function mobu_theme_custom_logo()
         );
     }
 
-    // Return
     return $html;
 }
 
 /**
- *
  * Remove Admin bar
- *
  */
 function remove_admin_bar()
 {
@@ -239,9 +248,7 @@ function remove_admin_bar()
 }
 
 /**
- *
  * add defer attribute to enqueued script
- *
  */
 function script_defer_attribute($tag, $handle, $src)
 {
@@ -255,9 +262,7 @@ function script_defer_attribute($tag, $handle, $src)
 }
 
 /**
- *
  * Remove Global styles from WordPress
- *
  */
 function remove_global_styles()
 {
@@ -278,6 +283,7 @@ add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('script_loader_tag', 'script_defer_attribute', 10, 3); // Add defer to enqueued script
 add_filter('excerpt_length', 'custom_excerpt_length'); // Custom Excerpt Length (the_excerpt)
 add_filter('wpcf7_autop_or_not', '__return_false'); // Remove p tag cf7
+add_filter('wp_nav_menu_objects', 'social_nav_svg_icons', 10, 2);
 
 /*------------------------------------*\
     Actions
@@ -288,7 +294,7 @@ add_action('init', 'mobu_theme_menu'); // Add site menu
 add_action('init', 'header_scripts'); // Add Custom Scripts to wp_head
 add_action('login_head', 'change_logo_login_head'); // Change admin logo
 add_action('wp_enqueue_scripts', 'public_assets', 99); // Add Theme Stylesheet
-add_action('wp_enqueue_scripts', 'remove_global_styles', 99); // Remove Global styles from WordPress
+add_action('wp_enqueue_scripts', 'remove_global_styles', 100); // Remove Global styles from WordPress
 add_action('customize_register', 'customizer_removes', 50); // Remove static_front_page from Wp Customizer
 add_action('wp_ajax_loadmore', 'loadmore_ajax_handler'); // Authenticated users
 add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler'); // Non-authenticated users

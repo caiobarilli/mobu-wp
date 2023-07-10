@@ -1,11 +1,20 @@
 footer {
-  background-color: $black;
-  margin-top: 4rem;
-  padding: 1rem;
+    background-color: $black;
 
-  p {
-    color: $white;
-    margin: 0;
-    text-align: center;
-  }
+    .MobuTheme-logo
+    {
+        margin-top: -50px;
+        margin-right: 50px;
+    }
+
+    .wrap_footer
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
