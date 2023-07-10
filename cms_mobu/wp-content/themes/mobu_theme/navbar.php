@@ -20,17 +20,21 @@
             }
             ?>
         </div>
+        <div>
+            <?php main_nav(); ?>
+        </div>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" data-bs-popper="static" aria-label="Toggle navigation">
-
-            <div id="nav-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-        </button>
-
-        <?php main_nav(); ?>
+        <div>
+            <?php social_nav(); ?>
+        </div>
     </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" data-bs-popper="static" aria-label="Toggle navigation">
+        <div id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
 </nav>

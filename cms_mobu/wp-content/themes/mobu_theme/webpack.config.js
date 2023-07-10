@@ -1,26 +1,24 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
-const webpack = require('webpack');
-
 let path = require("path");
 
-// change these variables to fit your project
-const jsPath = "./assets/scripts/";
-const outputPath = "./dist";
-const localDomain = "http://localhost:8000";
-const entryPoints = {
-  // 'app' is the output name, people commonly use 'bundle'
-  // you can have more than 1 entry point
-  app: jsPath + "/app.js",
-};
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+  BrowserSyncPlugin = require("browser-sync-webpack-plugin"),
+  webpack = require("webpack"),
+  // change these variables to fit your project
+  outputPath = "./dist",
+  scriptsPath = "./assets/scripts/",
+  localDomain = "http://localhost:8000",
+  entryPoints = {
+    app: scriptsPath + "/app.js",
+    home: scriptsPath + "/home.js",
+  };
 
 module.exports = {
-//   mode: 'development',
-    mode: 'production',
+  mode: "development",
+  //   mode: "production",
 
   externals: {
-    $: 'jquery',
-    jQuery: 'jquery',
+    $: "jquery",
+    jQuery: "jquery",
   },
 
   entry: entryPoints,
@@ -51,11 +49,10 @@ module.exports = {
     ),
 
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
     }),
-
   ],
   module: {
     rules: [

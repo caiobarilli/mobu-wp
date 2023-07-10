@@ -37,8 +37,9 @@ if (function_exists('add_theme_support')) {
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
+    add_image_size('post-banner-slider', 1920, 1040, true);
 
-    // Localisation Support
+    // Localization Support
     // load_theme_textdomain('mobu_theme', get_template_directory() . '/languages');
 }
 
@@ -127,6 +128,9 @@ function header_scripts()
 
         wp_register_script('mobu_theme_scripts', get_template_directory_uri() . '/dist/app.js', array(), THEME_VERSION); // Custom scripts
         wp_enqueue_script('mobu_theme_scripts'); // Enqueue it!
+
+        wp_register_script('mobu_home_scripts', get_template_directory_uri() . '/dist/home.js', array(), THEME_VERSION); // Custom scripts
+        wp_enqueue_script('mobu_home_scripts'); // Enqueue it!
 
     }
 }
