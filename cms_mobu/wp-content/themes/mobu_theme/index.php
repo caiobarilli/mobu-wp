@@ -64,7 +64,9 @@ get_header();
 
 
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="wrap-pagination">
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
 </header>
 

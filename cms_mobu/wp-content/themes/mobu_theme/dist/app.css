@@ -12103,6 +12103,39 @@ header .header-slider .swiper-slide .wrap_banner .title_banner h1, header .heade
   width: 850px;
   max-width: 100%;
 }
+header .header-slider .wrap-pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+header .header-slider .wrap-pagination .swiper-pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  width: fit-content !important;
+  padding: 10px;
+  top: -40px;
+}
+header .header-slider .wrap-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background: #848484;
+  border: 0;
+}
+header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: 3px solid #ffffff;
+}
 
 footer {
   padding: 60px 0 40px;

@@ -49,6 +49,48 @@ header
                     }
                 }
             }
+
+        }
+
+        .wrap-pagination
+        {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: absolute;
+            width: 100%;
+
+            .swiper-pagination
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                background: rgba(0, 0, 0, 0.7);
+                width: fit-content !important;
+                padding: 10px;
+                top: -40px;
+            }
+
+            .swiper-pagination-bullet
+            {
+                width: 15px;
+                height: 15px;
+                background: $gray_1;
+                border: 0;
+            }
+
+            .swiper-pagination-bullet-active
+            {
+                width: 22px;
+                height: 22px;
+                background: transparent;
+                border: 3px solid $white;
+            }
         }
     }
 }
