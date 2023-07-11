@@ -11922,6 +11922,13 @@ body {
 }
 
 /** =================== MONTSERRAT =================== **/
+/** Montserrat ExtraLight **/
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-style: normal;
+  src: url(f8bced5ff3fb68517cbf.woff2) format("woff2"), url(eb5fb69f4f236dfa5051.woff) format("woff");
+}
 /** Montserrat Light **/
 @font-face {
   font-family: "Montserrat";
@@ -11949,6 +11956,12 @@ body {
   font-weight: 700;
   font-style: normal;
   src: url(0af89c10df9bc2f8d646.woff2) format("woff2"), url(f0032576ac7462ccbd0c.woff) format("woff");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-style: normal;
+  src: url(e90b215d7f376e5fa8ae.woff2) format("woff2"), url(f7ed659b66f3b2b779cf.woff) format("woff");
 }
 #main-nav {
   background: url(22f39d0bb769084de550.png);
@@ -12168,6 +12181,80 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   height: 22px;
   background: transparent;
   border: 3px solid #ffffff;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.about .left-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background: #d48100;
+  width: 40%;
+  padding: 100px 75px 100px 0;
+}
+.about .left-content .wrap-content {
+  width: fit-content;
+}
+.about .left-content .wrap-content .title h2, .about .left-content .wrap-content .title .h2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 9.2rem;
+  font-weight: 300;
+  width: 80px;
+}
+.about .left-content .wrap-content .title h2 strong, .about .left-content .wrap-content .title .h2 strong {
+  font-size: 6.7rem;
+  font-weight: 700;
+  border-top: 4px solid #ffffff;
+}
+.about .left-content .wrap-content .text p {
+  font-size: 2rem;
+  font-weight: 500;
+  width: 272px;
+}
+.about .main-content {
+  background: #fdaa00;
+  width: 60%;
+  padding: 120px 120px 0;
+}
+.about .main-content .wrap-content .title h3, .about .main-content .wrap-content .title .h3 {
+  font-size: 3.4rem;
+  font-weight: 200;
+  width: 395px;
+  max-width: 100%;
+  margin-bottom: 90px;
+}
+.about .main-content .wrap-content .wrap-servicos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 660px;
+}
+.about .main-content .wrap-content .wrap-servicos .item-servico {
+  display: flex;
+  width: 46%;
+  margin-bottom: 50px;
+}
+.about .main-content .wrap-content .wrap-servicos .item-servico .icon-servico {
+  display: flex;
+}
+.about .main-content .wrap-content .wrap-servicos .item-servico .content-servico {
+  display: flex;
+  flex-direction: column;
+}
+.about .main-content .wrap-content .wrap-servicos .item-servico .content-servico .title h4, .about .main-content .wrap-content .wrap-servicos .item-servico .content-servico .title .h4 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.about .main-content .wrap-content .wrap-servicos .item-servico .content-servico .text p {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 footer {

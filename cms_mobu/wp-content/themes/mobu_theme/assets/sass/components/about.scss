@@ -1,0 +1,122 @@
+
+.about
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .left-content
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        background: $yellow_1;
+        width: 40%;
+        padding: 100px 75px 100px 0;
+
+        .wrap-content
+        {
+            width: fit-content;
+
+            .title
+            {
+                h2
+                {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 9.2rem;
+                    font-weight: 300;
+                    width: 80px;
+
+                    strong
+                    {
+                        font-size: 6.7rem;
+                        font-weight: 700;
+                        border-top: 4px solid $white;
+                    }
+
+                }
+            }
+
+            .text
+            {
+                p
+                {
+                    font-size: 2rem;
+                    font-weight: 500;
+                    width: 272px;
+                }
+            }
+        }
+    }
+
+    .main-content
+    {
+        background: $yellow_2;
+        width: 60%;
+        padding: 120px 120px 0;
+
+        .wrap-content
+        {
+            .title
+            {
+                h3
+                {
+                    font-size: 3.4rem;
+                    font-weight: 200;
+                    width: 395px;
+                    max-width: 100%;
+                    margin-bottom: 90px;
+                }
+            }
+
+            .wrap-servicos
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 660px;
+
+                .item-servico
+                {
+                    display: flex;
+                    width: 46%;
+                    margin-bottom: 50px;
+
+                    .icon-servico
+                    {
+                        display: flex;
+                    }
+
+                    .content-servico
+                    {
+                        display: flex;
+                        flex-direction: column;
+
+                        .title
+                        {
+                            h4
+                            {
+                                font-size: 1.8rem;
+                                font-weight: 800;
+                            }
+                        }
+
+                        .text
+                        {
+                            p
+                            {
+                                font-size: 1.2rem;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}

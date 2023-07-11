@@ -86,39 +86,64 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 </header>
 
 <main>
-
     <section class="about">
-
         <div class="left-content">
-            <div class="title">
-                <h2>
-                    <?php _e($title_about, 'mobu_theme'); ?>
-                </h2>
-            </div>
-            <div class="text">
-                <p>
-                    <?php _e($text_about, 'mobu_theme'); ?>
-                </p>
-            </div>
-        </div>
-
-        <div class="main-content">
-            <?php if (count($customizer_repeater_services_decoded) >= 2) : ?>
-                <div>
-                    <?php foreach ($customizer_repeater_services_decoded as $repeater_item) : ?>
-                        <div>
-                            <img src="<?php echo $repeater_item->image_url; ?>" alt="Icone ilustrativo" />
-                            <p>
-                                <?php _e($repeater_item->text, 'mobu_theme'); ?>
-                            </p>
-                        </div>
-                    <?php endforeach; ?>
+            <div class="wrap-content">
+                <div class="title">
+                    <h2>
+                        <strong>
+                            <?php _e('01', 'mobu_theme'); ?>
+                        </strong>
+                        <?php _e($title_about, 'mobu_theme'); ?>
+                    </h2>
                 </div>
-            <?php endif; ?>
+                <div class="text">
+                    <p>
+                        <?php _e($text_about, 'mobu_theme'); ?>
+                    </p>
+                </div>
+            </div>
         </div>
+        <div class="main-content">
+            <div class="wrap-content">
+                <div class="title">
+                    <h3>
+                        <?php _e($title_services_about, 'mobu_theme'); ?>
+                    </h3>
+                </div>
 
+                <div class="wrap-servicos">
+                    <?php
+                    if (count($customizer_repeater_services_decoded) >= 2) :
+                        foreach ($customizer_repeater_services_decoded as $repeater_item) :
+                    ?>
+
+                            <div class="item-servico">
+                                <div class="icon-servico">
+                                    <img src="<?php echo $repeater_item->image_url; ?>" height="80" width="80" alt="Icone ilustrativo" />
+                                </div>
+                                <div class="content-servico">
+                                    <div class="title">
+                                        <h4>
+                                            <?php _e($repeater_item->title, 'mobu_theme'); ?>
+                                        </h4>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            <?php _e($repeater_item->text, 'mobu_theme'); ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
+                </div>
+            </div>
+        </div>
     </section>
-
 
     <section class="course"></section>
     <section class="cta"></section>
