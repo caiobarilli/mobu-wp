@@ -122,5 +122,54 @@
             }
         }
 
+        @include media-breakpoint-down(md)
+        {
+            button[type=button]
+            {
+                border: 0;
+                outline: 0;
+                background: transparent;
+
+                svg
+                {
+                    transform: translate(20px, -20px);
+                }
+            }
+        }
     }
+
+
+    @include media-breakpoint-down(md)
+    {
+        #menu-mobile
+        {
+            width: 100%;
+            .wrap-content
+            {
+                #header-menu
+                {
+                    .header-menu
+                    {
+                        flex-direction: column;
+
+                        li
+                        {
+                            margin: 0 0 10px;
+
+                            &:last-child
+                            {
+                                margin: 0;
+                            }
+
+                            a
+                            {
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
