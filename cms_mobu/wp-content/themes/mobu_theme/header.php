@@ -22,20 +22,8 @@
 	<title>
 		<?php
 		wp_title('');
-
-		if (wp_title('', false)) {
-
-			echo ' - ';
-			bloginfo('name');
-			echo ' - ';
-			bloginfo('description');
-		} else {
-
-			bloginfo('name');
-			echo ' - ';
-			bloginfo('description');
-		}
-
+		bloginfo('name');
+		bloginfo('description');
 		?>
 	</title>
 

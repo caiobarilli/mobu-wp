@@ -17,6 +17,19 @@
 
 get_header();
 
+// O que é
+$title_about = get_theme_mod('set_title_about');
+$text_about = get_theme_mod('set_text_about');
+$title_services_about = get_theme_mod('set_title_services_about');
+$customizer_repeater_services = get_theme_mod('customizer_repeater_services', json_encode(array()));
+$customizer_repeater_services_decoded = json_decode($customizer_repeater_services);
+
+// Contato
+$title_contact = get_theme_mod('set_title_contact');
+$shortcode_form_contact = get_theme_mod('set_shortcode_form_contact');
+$customizer_repeater_social = get_theme_mod('customizer_repeater_social', json_encode(array()));
+$customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
+
 ?>
 
 <header>
@@ -74,7 +87,39 @@ get_header();
 
 <main>
 
-    <section class="about"></section>
+    <section class="about">
+
+        <div class="left-content">
+            <div class="title">
+                <h2>
+                    <?php _e($title_about, 'mobu_theme'); ?>
+                </h2>
+            </div>
+            <div class="text">
+                <p>
+                    <?php _e($text_about, 'mobu_theme'); ?>
+                </p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <?php if (count($customizer_repeater_services_decoded) >= 2) : ?>
+                <div>
+                    <?php foreach ($customizer_repeater_services_decoded as $repeater_item) : ?>
+                        <div>
+                            <img src="<?php echo $repeater_item->image_url; ?>" alt="Icone ilustrativo" />
+                            <p>
+                                <?php _e($repeater_item->text, 'mobu_theme'); ?>
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+
+    </section>
+
+
     <section class="course"></section>
     <section class="cta"></section>
     <section class="team"></section>

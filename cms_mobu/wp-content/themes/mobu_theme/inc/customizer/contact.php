@@ -5,7 +5,7 @@
  *  Contato
  *
  */
-$wp_customize->add_panel('panel_contact_page', array(
+$wp_customize->add_panel('panel_contact_section', array(
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
     'title'          => __('Configurações da Sessão: Contato', 'mobu_theme'),
@@ -23,7 +23,7 @@ $wp_customize->add_section(
     array(
         'title'            => __('Cabeçalho', 'mobu_theme'),
         'description'    => ' ',
-        'panel'         => 'panel_contact_page',
+        'panel'         => 'panel_contact_section',
     )
 );
 
@@ -45,7 +45,6 @@ $wp_customize->add_control(
     )
 );
 
-
 /**
  *
  *  Contact Page:
@@ -57,25 +56,7 @@ $wp_customize->add_section(
     array(
         'title'            => __('Formulario', 'mobu_theme'),
         'description'    => ' ',
-        'panel'         => 'panel_contact_page',
-    )
-);
-
-// Field 1 - Text Box
-$wp_customize->add_setting(
-    'set_title_form_contact',
-    array(
-        'type'      => 'theme_mod',
-        'default'   => '',
-    )
-);
-$wp_customize->add_control(
-    'set_title_form_contact',
-    array(
-        'label'                => __('Titulo do formulario', 'mobu_theme'),
-        'description'        => __('Digite o titulo do cabeçalho da pagina', 'mobu_theme'),
-        'section'            => 'sec_form_contact',
-        'type'                => 'text'
+        'panel'         => 'panel_contact_section',
     )
 );
 
@@ -109,7 +90,7 @@ $wp_customize->add_section(
     array(
         'title'            => __('Redes Sociais', 'mobu_theme'),
         'description'    => ' ',
-        'panel'         => 'panel_contact_page',
+        'panel'         => 'panel_contact_section',
     )
 );
 
