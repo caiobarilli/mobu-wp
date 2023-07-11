@@ -27,8 +27,19 @@
         {
             width: fit-content;
 
+            @include media-breakpoint-down(md)
+            {
+                width: 100%;
+                display: flex;
+            }
+
             .title
             {
+                @include media-breakpoint-down(md)
+                {
+                    margin-right: 10px;
+                }
+
                 h2
                 {
                     display: flex;
@@ -142,7 +153,6 @@
                 @include media-breakpoint-down(xl)
                 {
                     width: 90%;
-                    margin: 0 auto;
                 }
 
                 input[type="text"],

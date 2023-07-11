@@ -21,7 +21,7 @@ $wp_customize->add_panel('panel_contact_section', array(
 $wp_customize->add_section(
     'sec_header_contact',
     array(
-        'title'            => __('Cabeçalho', 'mobu_theme'),
+        'title'            => __('Titulo', 'mobu_theme'),
         'description'    => ' ',
         'panel'         => 'panel_contact_section',
     )
@@ -38,8 +38,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     'set_title_contact',
     array(
-        'label'                => __('Titulo do cabeçalho', 'mobu_theme'),
-        'description'        => __('Digite o titulo do cabeçalho da pagina', 'mobu_theme'),
+        'label'                => __('Titulo', 'mobu_theme'),
+        'description'        => __('Digite o titulo da sessão', 'mobu_theme'),
         'section'            => 'sec_header_contact',
         'type'                => 'text'
     )

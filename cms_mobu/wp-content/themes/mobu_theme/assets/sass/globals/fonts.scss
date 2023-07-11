@@ -112,7 +112,7 @@
 //          url("/assets/fonts/Montserrat-SemiBoldItalic.woff") format("woff");
 // }
 
-// /** Montserrat Bold **/
+/** Montserrat Bold **/
 @font-face {
     font-family: "Montserrat";
     font-weight: 700;
@@ -121,14 +121,14 @@
          url("/assets/fonts/Montserrat-Bold.woff") format("woff");
 }
 
-// /** Montserrat Bold-Italic **/
-// @font-face {
-//     font-family: "Montserrat";
-//     font-weight: 700;
-//     font-style: italic;
-//     src: url("/assets/fonts/Montserrat-BoldItalic.woff2") format("woff2"),
-//          url("/assets/fonts/Montserrat-BoldItalic.woff") format("woff");
-// }
+/** Montserrat Bold-Italic **/
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-style: italic;
+    src: url("/assets/fonts/Montserrat-BoldItalic.woff2") format("woff2"),
+         url("/assets/fonts/Montserrat-BoldItalic.woff") format("woff");
+}
 
 // /** Montserrat ExtraBold **/
 @font-face {

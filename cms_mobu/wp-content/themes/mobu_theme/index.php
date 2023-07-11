@@ -24,6 +24,12 @@ $title_services_about = get_theme_mod('set_title_services_about');
 $customizer_repeater_services = get_theme_mod('customizer_repeater_services', json_encode(array()));
 $customizer_repeater_services_decoded = json_decode($customizer_repeater_services);
 
+// Testimonial / Depoimentos
+$customizer_repeater_depoimentos = get_theme_mod('customizer_repeater_depoimentos', json_encode(array()));
+$customizer_repeater_depoimentos_decoded = json_decode($customizer_repeater_depoimentos);
+$customizer_repeater_clients = get_theme_mod('customizer_repeater_clients', json_encode(array()));
+$customizer_repeater_clients_decoded = json_decode($customizer_repeater_clients);
+
 // Contato
 $title_contact = get_theme_mod('set_title_contact');
 $shortcode_form_contact = get_theme_mod('set_shortcode_form_contact');
@@ -151,7 +157,68 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
     <section class="plans"></section>
 
     <section class="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-1">
+                    <div class="swiper testimonials-slider">
+                        <div class="swiper-wrapper">
+                            <?php
+                            if (count($customizer_repeater_depoimentos_decoded) >= 2) :
+                                foreach ($customizer_repeater_depoimentos_decoded as $repeater_item) :
+                            ?>
 
+                                    <div class="swiper-slide">
+                                        <div class="wrap-testimonial">
+                                            <div class="wrap-text">
+                                                <p>
+                                                    <?php _e($repeater_item->text, 'mobu_theme'); ?>
+                                                </p>
+                                            </div>
+
+                                            <div class="wrap-profile">
+                                                <div class="image">
+                                                    <img src="<?php echo $repeater_item->image_url; ?>" height="100" width="100" alt="Imagem ilustrativa" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>
+                                                        <strong>
+                                                            <?php _e($repeater_item->title, 'mobu_theme'); ?>
+                                                        </strong>
+                                                        <?php _e($repeater_item->subtitle, 'mobu_theme'); ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            <?php
+                                endforeach;
+                            endif;
+                            ?>
+                        </div>
+                        <div class="wrap-pagination">
+                            <div class="swiper-pagination swiper-pagination-testimonials"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="wrap-clients">
+                        <?php
+                        if (count($customizer_repeater_clients_decoded) >= 2) :
+                            foreach ($customizer_repeater_clients_decoded as $repeater_item) :
+                        ?>
+                                <div class="image">
+                                    <img src="<?php echo $repeater_item->image_url; ?>" alt="Imagem ilustrativa" />
+                                </div>
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <section class="blog"></section>

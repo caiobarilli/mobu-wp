@@ -59,11 +59,23 @@ $.when($.ready).then(function () {
   /**
    * Header slider
    */
-  const swiper = new Swiper(".header-slider", {
+  const swiperHeader = new Swiper(".header-slider", {
     modules: [Navigation, Pagination],
 
     pagination: {
       el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+  /**
+   * Testimonials slider
+   */
+  const swiperTestimonials = new Swiper(".testimonials-slider", {
+    modules: [Navigation, Pagination],
+
+    pagination: {
+      el: ".swiper-pagination-testimonials",
       clickable: true,
     },
   });
