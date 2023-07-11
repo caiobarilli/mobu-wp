@@ -12404,6 +12404,11 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   color: #000000;
   padding: 120px 0;
 }
+@media (max-width: 767.98px) {
+  .testimonials {
+    padding: 40px 0;
+  }
+}
 .testimonials .testimonials-slider {
   width: 350px;
   max-width: 100%;
@@ -12489,9 +12494,21 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   height: 100%;
   padding-left: 15px;
 }
+@media (max-width: 767.98px) {
+  .testimonials .wrap-clients {
+    padding-left: 0;
+    height: auto;
+    margin: 20px 0 0;
+  }
+}
 .testimonials .wrap-clients .image {
   max-width: 160px;
   margin: 0 15px 15px;
+}
+@media (max-width: 767.98px) {
+  .testimonials .wrap-clients .image {
+    max-width: 120px;
+  }
 }
 .testimonials .wrap-clients .image img {
   max-width: 100%;
@@ -12517,6 +12534,11 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
     width: 100%;
     padding: 10px;
     justify-content: flex-start;
+  }
+}
+@media (max-width: 767.98px) {
+  .contact .left-content {
+    padding-top: 40px;
   }
 }
 .contact .left-content .wrap-content {

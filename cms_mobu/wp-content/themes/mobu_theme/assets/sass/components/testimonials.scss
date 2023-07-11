@@ -5,6 +5,11 @@
     color: $black;
     padding: 120px 0;
 
+    @include media-breakpoint-down(md)
+    {
+        padding: 40px 0;
+    }
+
     .testimonials-slider
     {
         width: 350px;
@@ -88,7 +93,6 @@
         }
     }
 
-
     .wrap-pagination
     {
         display: flex;
@@ -128,10 +132,22 @@
         height: 100%;
         padding-left: 15px;
 
+        @include media-breakpoint-down(md)
+        {
+            padding-left: 0;
+            height: auto;
+            margin: 20px 0 0;
+        }
+
         .image
         {
             max-width: 160px;
             margin: 0 15px 15px;
+
+            @include media-breakpoint-down(md)
+            {
+                max-width: 120px;
+            }
 
             img
             {
