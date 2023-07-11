@@ -1,14 +1,51 @@
 
 footer
 {
-    background-color: $gray;
-    margin-top: 4rem;
-    padding: 1rem;
+    padding: 60px 0 40px;
+    background-color: $black;
 
-    p
+    @include media-breakpoint-up(md)
     {
-        color: $white;
-        margin: 0;
-        text-align: center;
+        .logo-mobu
+        {
+            margin-top: -50px;
+            margin-right: 50px;
+        }
+    }
+
+    .wrap_footer
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include media-breakpoint-down(md)
+    {
+        #social-menu
+        {
+            margin-top: 30px;
+
+            .social-menu
+            {
+                .menu-item
+                {
+                    a
+                    {
+                        padding: 0;
+                        width: 32px;
+                        height: 32px;
+                        img
+                        {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

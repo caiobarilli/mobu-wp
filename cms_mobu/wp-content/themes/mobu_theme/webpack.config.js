@@ -1,80 +1,83 @@
-const path = require('path');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+let path = require("path");
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+  BrowserSyncPlugin = require("browser-sync-webpack-plugin"),
+  webpack = require("webpack"),
+  // change these variables to fit your project
+  outputPath = "./dist",
+  scriptsPath = "./assets/scripts/",
+  localDomain = "http://localhost:8000",
+  entryPoints = {
+    app: scriptsPath + "/app.js",
+    home: scriptsPath + "/home.js",
+  };
 
 module.exports = {
-  // mode: 'development',
-  mode: 'production',
+  mode: "development",
+  //   mode: "production",
 
-  entry: './assets/scripts/main.js',
+  externals: {
+    $: "jquery",
+    jQuery: "jquery",
+  },
+
+  entry: entryPoints,
 
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, outputPath),
+    filename: "[name].js",
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
 
-    new miniCssExtractPlugin(),
-
+    // Uncomment this if you want to use CSS Live reload
     new BrowserSyncPlugin(
       {
-        host: 'localhost',
-        port: 3000,
-        proxy: "http://localhost:8000",
+        proxy: localDomain,
         files: [
-          "./dist/*.css",
-          "./dist/*.js",
-          "./**/*.scss",
+          outputPath + "/*.css",
+          outputPath + "/*.js",
           "./**/*.php",
+          "./**/*.sass",
         ],
         injectCss: true,
       },
       { reload: false }
     ),
 
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+    }),
   ],
-
   module: {
     rules: [
       {
-        mimetype: 'image/svg+xml',
-        scheme: 'data',
-        type: 'asset/resource',
-        generator: {
-          filename: 'icons/[hash].svg'
-        }
+        test: /\.s?[c]ss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(scss)$/,
+        test: /\.sass$/i,
         use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
           {
-            // Extracts CSS for each JS file that includes CSS
-            loader: miniCssExtractPlugin.loader
-          },
-          {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: 'css-loader'
-          },
-          {
-            // Loader for webpack to process CSS with PostCSS
-            loader: 'postcss-loader',
+            loader: "sass-loader",
             options: {
-              postcssOptions: {
-                plugins: function () {
-                  return [
-                    require('autoprefixer')
-                  ];
-                }
-              }
-            }
+              sassOptions: { indentedSyntax: true },
+            },
           },
-          {
-            // Loads a SASS/SCSS file and compiles it to CSS
-            loader: 'sass-loader'
-          }
-        ]
-      }
-    ]
-  }
-}
+        ],
+      },
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
+      },
+    ],
+  },
+};

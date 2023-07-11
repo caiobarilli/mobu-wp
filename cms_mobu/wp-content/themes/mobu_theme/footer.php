@@ -15,18 +15,23 @@
 ?>
 
 <footer>
-    <div class="container">
-        <div class="col-12">
-            <p>
-                <?php _e('© Wordpress - Custom Theme - Todos os direitos reservados', 'mobu_theme'); ?>
-            </p>
-        </div>
+    <div class="wrap_footer">
+
+        <?php
+        if (has_custom_logo() && function_exists('the_custom_logo')) {
+            the_custom_logo();
+        } else {
+            echo '<a href="' . home_url() . '">' . '<img src="' . get_theme_file_uri('assets/img/logo.png') . '" class="MobuTheme-logo" width="256" height="54" alt="Logo"/>' . '</a>';
+        }
+        ?>
+
+        <?php social_nav(); ?>
+
     </div>
 </footer>
 
 <?php
 
-get_template_part('template-parts/modal', 'privacy-policy');
 wp_footer();
 
 ?>
