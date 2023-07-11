@@ -95,20 +95,25 @@
 
     .wrap-pagination
     {
-        display: flex;
         width: 350px;
         max-width: 100%;
 
         .swiper-pagination
         {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            align-items: center;
             position: relative;
+            justify-content: center;
             margin-top: 25px;
         }
 
         .swiper-pagination-bullet
         {
-            width: 15px;
-            height: 15px;
+            width: 14px;
+            height: 14px;
             background: $gray_1;
             border: 0;
         }
