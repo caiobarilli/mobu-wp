@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
 
     .left-content
     {
@@ -35,6 +36,7 @@
                     font-size: 9.2rem;
                     font-weight: 300;
                     width: 265px;
+                    margin-bottom: 35px;
 
                     @include media-breakpoint-down(lg)
                     {
@@ -46,6 +48,7 @@
                     @include media-breakpoint-down(md)
                     {
                         font-size: 3.2rem;
+                        width: 100px;
                     }
 
                     strong
@@ -70,6 +73,40 @@
                 }
             }
 
+            .social
+            {
+                padding: 0;
+                width: 200px;
+                li
+                {
+                    list-style-type: none;
+                    display: inline-block;
+                    margin-right: 10px;
+                    margin-bottom: 20px;
+
+                    a
+                    {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+
+                        background: $white;
+                        position: relative;
+                        width: 62px;
+                        height: 62px;
+                        padding: 10px;
+                        border-radius: 100px;
+
+                        img
+                        {
+                            width: 32px;
+                            height: 32px;
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -90,31 +127,60 @@
             padding: 0 2%;
         }
 
-        .wrap-content
+        @include media-breakpoint-down(md)
         {
-            .title
-            {
-                h3
-                {
-                    font-size: 3.4rem;
-                    font-weight: 200;
-                    width: 395px;
-                    max-width: 100%;
-                    margin-bottom: 90px;
-
-                    @include media-breakpoint-down(lg)
-                    {
-                        margin: 30px 0;
-                    }
-                    @include media-breakpoint-down(md)
-                    {
-                        font-size: 2.4rem;
-                    }
-                }
-            }
-
+            padding: 20px 10px 10px;
         }
 
-    }
+        .wrap-form
+        {
+            form
+            {
+                width: 660px;
+                max-width: 100%;
 
+                @include media-breakpoint-down(xl)
+                {
+                    width: 90%;
+                    margin: 0 auto;
+                }
+
+                input[type="text"],
+                input[type="email"],
+                textarea
+                {
+                    width: 100%;
+                    padding: 10px;
+                    border: 0;
+                    border-bottom: 1px solid $white;
+                    background: transparent;
+                    color: $white;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    outline: none;
+
+                    &::placeholder
+                    {
+                        color: $white;
+                    }
+                }
+
+                input[type="submit"]
+                {
+                    background: transparent;
+                    color: $white;
+                    border: 1px solid $white;
+                    padding: 10px;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    width: 100%;
+                    margin: 20px 0 0;
+                }
+
+            }
+        }
+    }
 }

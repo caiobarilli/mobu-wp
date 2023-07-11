@@ -167,32 +167,28 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
                         <?php _e($title_contact, 'mobu_theme'); ?>
                     </h2>
                 </div>
-                <div class="social">
-                    <ul class="wrap-servicos">
-                        <?php
-                        if (count($customizer_repeater_social_decoded) >= 2) :
-                            foreach ($customizer_repeater_social_decoded as $repeater_item) :
-                        ?>
+                <ul class="social">
+                    <?php
+                    if (count($customizer_repeater_social_decoded) >= 2) :
+                        foreach ($customizer_repeater_social_decoded as $repeater_item) :
+                    ?>
 
-                                <li>
-                                    <a href="<?php echo $repeater_item->link; ?>">
-                                        <img src="<?php echo $repeater_item->image_url; ?>" height="60" width="60" alt="Icone ilustrativo" />
-                                    </a>
-                                </li>
+                            <li>
+                                <a href="<?php echo $repeater_item->link; ?>">
+                                    <img src="<?php echo $repeater_item->image_url; ?>" height="60" width="60" alt="Icone ilustrativo" />
+                                </a>
+                            </li>
 
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </ul>
-                </div>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
+                </ul>
             </div>
         </div>
         <div class="main-content">
-            <div class="wrap-content">
-                <div class="wrap-form">
-                    <?php echo do_shortcode($shortcode_form_contact); ?>
-                </div>
+            <div class="wrap-form">
+                <?php echo do_shortcode($shortcode_form_contact); ?>
             </div>
         </div>
     </section>
