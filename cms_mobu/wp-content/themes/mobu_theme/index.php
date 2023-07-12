@@ -183,7 +183,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 
     <section class="plans">
 
-        <div class="title">
+        <div class="title-plans">
             <h2>
                 <?php _e($title_modules, 'mobu_theme'); ?>
             </h2>
