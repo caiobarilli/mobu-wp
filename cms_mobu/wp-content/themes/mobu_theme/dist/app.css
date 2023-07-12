@@ -12403,6 +12403,11 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   background: #101010;
   padding: 60px 0 120px;
 }
+@media (max-width: 767.98px) {
+  .plans {
+    padding: 60px 0 0;
+  }
+}
 .plans .title-plans {
   display: flex;
   width: 1080px;

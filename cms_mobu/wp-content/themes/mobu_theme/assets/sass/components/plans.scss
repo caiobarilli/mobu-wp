@@ -3,6 +3,10 @@
 {
     background: $dark_1;
     padding: 60px 0 120px;
+    @include media-breakpoint-down(md)
+    {
+        padding: 60px 0 0;
+    }
 
     .title-plans
     {
