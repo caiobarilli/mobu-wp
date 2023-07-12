@@ -101,13 +101,13 @@
 
         @include media-breakpoint-down(xl)
         {
-            padding: 50px 0 0 50px;
+            padding: 50px 0 50px 50px;
         }
 
         @include media-breakpoint-down(lg)
         {
             width: 100%;
-            padding: 0 2%;
+            padding: 10px;
         }
 
         .wrap-team
@@ -118,6 +118,11 @@
 
             width: 660px;
             max-width: 100%;
+
+            @media (max-width: 1366px)
+            {
+                width: 520px;
+            }
 
             .wrap-dev
             {
@@ -132,11 +137,23 @@
                     width: 330px;
                     height: 330px;
 
+                    @media (max-width: 1366px)
+                    {
+                        width: 260px;
+                        height: 260px;
+                    }
+
                     .img-banner
                     {
                         img
                         {
                             max-width: 100%;
+
+                            @media (max-width: 1366px)
+                            {
+                                height: 100%;
+                            }
+
                         }
                     }
 
@@ -169,6 +186,12 @@
                     height: 330px;
                     background: $orange_1;
                     padding: 20px;
+
+                    @media (max-width: 1366px)
+                    {
+                        width: 260px;
+                        height: 260px;
+                    }
 
                     .content
                     {

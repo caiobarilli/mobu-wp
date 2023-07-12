@@ -12481,13 +12481,13 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
 }
 @media (max-width: 1199.98px) {
   .team .main-content {
-    padding: 50px 0 0 50px;
+    padding: 50px 0 50px 50px;
   }
 }
 @media (max-width: 991.98px) {
   .team .main-content {
     width: 100%;
-    padding: 0 2%;
+    padding: 10px;
   }
 }
 .team .main-content .wrap-team {
@@ -12496,6 +12496,11 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   flex-wrap: wrap;
   width: 660px;
   max-width: 100%;
+}
+@media (max-width: 1366px) {
+  .team .main-content .wrap-team {
+    width: 520px;
+  }
 }
 .team .main-content .wrap-team .wrap-dev {
   width: fit-content;
@@ -12508,8 +12513,19 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   width: 330px;
   height: 330px;
 }
+@media (max-width: 1366px) {
+  .team .main-content .wrap-team .wrap-dev .front-team {
+    width: 260px;
+    height: 260px;
+  }
+}
 .team .main-content .wrap-team .wrap-dev .front-team .img-banner img {
   max-width: 100%;
+}
+@media (max-width: 1366px) {
+  .team .main-content .wrap-team .wrap-dev .front-team .img-banner img {
+    height: 100%;
+  }
 }
 .team .main-content .wrap-team .wrap-dev .front-team .title-banner {
   width: 115px;
@@ -12532,6 +12548,12 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   height: 330px;
   background: #ed6d00;
   padding: 20px;
+}
+@media (max-width: 1366px) {
+  .team .main-content .wrap-team .wrap-dev .back-team {
+    width: 260px;
+    height: 260px;
+  }
 }
 .team .main-content .wrap-team .wrap-dev .back-team .content .title h3, .team .main-content .wrap-team .wrap-dev .back-team .content .title .h3 {
   font-size: 1.4rem;
