@@ -62,7 +62,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 
 ?>
 
-<header>
+<header id="home">
     <div class="swiper header-slider">
         <div class="swiper-wrapper">
 
@@ -116,7 +116,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 </header>
 
 <main>
-    <section class="about">
+    <section id="o_que" class="about">
         <div class="left-content">
             <div class="wrap-content">
                 <div class="title">
@@ -176,15 +176,18 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
     </section>
 
     <section class="course"></section>
-    <section class="cta"></section>
 
-    <section class="team">
+    <section class="cta">
+
+    </section>
+
+    <section id="time" class="team">
         <div class="left-content">
             <div class="wrap-content">
                 <div class="title">
                     <h2>
                         <strong>
-                            <?php _e('01', 'mobu_theme'); ?>
+                            <?php _e('03', 'mobu_theme'); ?>
                         </strong>
                         <?php _e($title_team, 'mobu_theme'); ?>
                     </h2>
@@ -261,7 +264,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
         </div>
     </section>
 
-    <section class="plans">
+    <section id="precos" class="plans">
 
         <div class="title-plans">
             <h2>
@@ -450,7 +453,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 
     <section class="blog"></section>
 
-    <section class="contact">
+    <section id="contato" class="contact">
         <div class="left-content">
             <div class="wrap-content">
                 <div class="title">
