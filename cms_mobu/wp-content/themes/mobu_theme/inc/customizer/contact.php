@@ -8,15 +8,12 @@
 $wp_customize->add_panel('panel_contact_section', array(
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
-    'title'          => __('Configurações da Sessão: Contato', 'mobu_theme'),
+    'title'          => __('Sessão: Contato', 'mobu_theme'),
     'description'    => '',
 ));
 
 /**
- *
- *  Contact Page:
- *  Cabeçalho
- *
+ *  Titulo
  */
 $wp_customize->add_section(
     'sec_header_contact',
@@ -46,10 +43,7 @@ $wp_customize->add_control(
 );
 
 /**
- *
- *  Contact Page:
  *  Form
- *
  */
 $wp_customize->add_section(
     'sec_form_contact',
@@ -78,12 +72,8 @@ $wp_customize->add_control(
     )
 );
 
-
 /**
- *
- *  Contact Page:
  *  Social
- *
  */
 $wp_customize->add_section(
     'sec_form_social',

@@ -77,6 +77,15 @@ function mobu_theme_require_plugins()
             'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
         ),
 
+        array(
+            'name'               => 'Classi editor',
+            'slug'               => 'classic-editor',
+            'source'             => get_stylesheet_directory() . '/plugins/classic-editor.zip',
+            'required'           => false, // this plugin is required
+            'external_url'       => 'https://wordpress.org/plugins/classic-editor/', // page of my plugin
+            'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
+        ),
+
     );
 
     $config = array( /* The array to configure TGM Plugin Activation */);

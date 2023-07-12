@@ -6,7 +6,7 @@
 $wp_customize->add_panel('panel_about_section', array(
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
-    'title'          => __('Configurações da Sessão: O Que', 'mobu_theme'),
+    'title'          => __('Sessão: O Que', 'mobu_theme'),
     'description'    => '',
 ));
 

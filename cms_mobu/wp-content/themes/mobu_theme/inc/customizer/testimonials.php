@@ -6,7 +6,7 @@
 $wp_customize->add_panel('panel_testimonial_section', array(
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
-    'title'          => __('Configurações da Sessão: Depoimento/Clientes', 'mobu_theme'),
+    'title'          => __('Sessão: Depoimento/Clientes', 'mobu_theme'),
     'description'    => '',
 ));
 
