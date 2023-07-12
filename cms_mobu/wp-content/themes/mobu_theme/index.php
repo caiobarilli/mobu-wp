@@ -24,6 +24,26 @@ $title_services_about = get_theme_mod('set_title_services_about');
 $customizer_repeater_services = get_theme_mod('customizer_repeater_services', json_encode(array()));
 $customizer_repeater_services_decoded = json_decode($customizer_repeater_services);
 
+// Modulos
+$title_modules = get_theme_mod('set_title_modules');
+$title_module_i = get_theme_mod('set_title_module_i');
+$title_module_ii = get_theme_mod('set_title_module_ii');
+$title_module_iii = get_theme_mod('set_title_module_iii');
+$subtitle_module_i = get_theme_mod('set_subtitle_module_i');
+$subtitle_module_ii = get_theme_mod('set_subtitle_module_ii');
+$subtitle_module_iii = get_theme_mod('set_subtitle_module_iii');
+$price_module_i = get_theme_mod('set_price_module_i');
+$price_module_ii = get_theme_mod('set_price_module_ii');
+$price_module_iii = get_theme_mod('set_price_module_iii');
+$text_module_i = get_theme_mod('set_text_module_i');
+$text_module_ii = get_theme_mod('set_text_module_ii');
+$text_module_iii = get_theme_mod('set_text_module_iii');
+$link_module_i = get_theme_mod('set_link_module_i');
+$link_module_ii = get_theme_mod('set_link_module_ii');
+$link_module_iii = get_theme_mod('set_link_module_iii');
+$title_module_others = get_theme_mod('set_title_module_others');
+$title_module_i = get_theme_mod('set_link_module_others');
+
 // Testimonial / Depoimentos
 $customizer_repeater_depoimentos = get_theme_mod('customizer_repeater_depoimentos', json_encode(array()));
 $customizer_repeater_depoimentos_decoded = json_decode($customizer_repeater_depoimentos);
@@ -154,7 +174,72 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
     <section class="course"></section>
     <section class="cta"></section>
     <section class="team"></section>
-    <section class="plans"></section>
+
+    <section class="plans">
+
+        <div class="title">
+            <h2>
+                <?php _e('Planos', 'mobu_theme'); ?>
+            </h2>
+        </div>
+
+        <div class="wrap-plans">
+
+            <div class="wrap-single-plan">
+                <div class="single-plan">
+                    <div class="title"></div>
+                    <div class="content">
+                        <div class="text">
+
+                        </div>
+                        <div class="link">
+                            <a href="#">
+                                <?php _e('Escolher', 'mobu_theme'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap-single-plan">
+                <div class="single-plan">
+                    <div class="title"></div>
+                    <div class="content">
+                        <div class="text">
+
+                        </div>
+                        <div class="link">
+                            <a href="#">
+                                <?php _e('Escolher', 'mobu_theme'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap-single-plan">
+                <div class="single-plan">
+                    <div class="title"></div>
+                    <div class="content">
+                        <div class="text">
+
+                        </div>
+                        <div class="link">
+                            <a href="#">
+                                <?php _e('Escolher', 'mobu_theme'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="other-plan">
+                    <div class="title"></div>
+                    <div class="content"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <section class="testimonials">
         <div class="container">
