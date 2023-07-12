@@ -40,6 +40,7 @@ if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
     add_image_size('logo-mobu', 256, 54, true);
     add_image_size('post-banner-slider', 1920, 1040, true);
+    add_image_size('image-team', 330, 330, true);
 
     // Localization Support
     // load_theme_textdomain('mobu_theme', get_template_directory() . '/languages');

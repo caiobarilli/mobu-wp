@@ -59,24 +59,58 @@ $.when($.ready).then(function () {
   /**
    * Header slider
    */
-  const swiperHeader = new Swiper(".header-slider", {
-    modules: [Navigation, Pagination],
+  if ($(".header-slider").length) {
+    const swiperHeader = new Swiper(".header-slider", {
+      modules: [Navigation, Pagination],
 
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  }
 
   /**
    * Testimonials slider
    */
-  const swiperTestimonials = new Swiper(".testimonials-slider", {
-    modules: [Navigation, Pagination],
+  if ($(".testimonials-slider").length) {
+    const swiperTestimonials = new Swiper(".testimonials-slider", {
+      modules: [Navigation, Pagination],
 
-    pagination: {
-      el: ".swiper-pagination-testimonials",
-      clickable: true,
-    },
-  });
+      pagination: {
+        el: ".swiper-pagination-testimonials",
+        clickable: true,
+      },
+    });
+  }
+
+  /**
+   * Team content
+   */
+  if ($(".team").length) {
+    const wrapDevs = document.querySelectorAll(".wrap-dev");
+
+    wrapDevs.forEach((wrapDev) => {
+      const frontTeam = wrapDev.querySelector(".front-team");
+      const backTeam = wrapDev.querySelector(".back-team");
+
+      console.log(backTeam);
+
+      wrapDev.addEventListener("mouseover", () => {
+        console.log("mouseover");
+        frontTeam.style.opacity = "0";
+        frontTeam.style.display = "none";
+        backTeam.style.opacity = "1";
+        backTeam.style.display = "block";
+      });
+
+      wrapDev.addEventListener("mouseout", () => {
+        console.log("mouseover");
+        frontTeam.style.opacity = "1";
+        frontTeam.style.display = "block";
+        backTeam.style.opacity = "0";
+        backTeam.style.display = "none";
+      });
+    });
+  }
 });
