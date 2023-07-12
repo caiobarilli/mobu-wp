@@ -12399,6 +12399,15 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   font-weight: 500;
 }
 
+.plans {
+  background: #101010;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan {
+  background: #000000;
+}
+.plans .wrap-plans .wrap-single-plan .other-plan {
+  background: #000000;
+}
 .testimonials {
   background: #ffffff;
   color: #000000;

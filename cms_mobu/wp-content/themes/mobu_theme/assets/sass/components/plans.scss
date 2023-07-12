@@ -1,0 +1,63 @@
+
+.plans
+{
+    background: $dark_1;
+
+    .title
+    {
+        h2
+        {
+
+        }
+    }
+
+    .wrap-plans
+    {
+        .wrap-single-plan
+        {
+            .single-plan
+            {
+                background: $black;
+
+                .title
+                {
+                    h3
+                    {
+
+                    }
+                }
+
+                .content
+                {
+                    .text
+                    {
+
+                    }
+
+                    .link
+                    {
+                        a
+                        {
+
+                        }
+                    }
+                }
+            }
+
+            .other-plan
+            {
+                background: $black;
+
+                .title
+                {
+
+                }
+
+                .content
+                {
+
+                }
+            }
+        }
+    }
+}

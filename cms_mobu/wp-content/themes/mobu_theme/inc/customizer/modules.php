@@ -365,7 +365,7 @@ $wp_customize->add_control(
         'label'                => __('Titulo', 'mobu_theme'),
         'description'        => __('Digite o titulo do modulo (geral)', 'mobu_theme'),
         'section'            => 'sec_modules_others',
-        'type'                => 'text'
+        'type'                => 'textarea'
     )
 );
 
