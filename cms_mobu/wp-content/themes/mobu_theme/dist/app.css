@@ -12401,13 +12401,138 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
 
 .plans {
   background: #101010;
+  padding: 60px 0;
+}
+.plans .title {
+  display: flex;
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.plans .title h2, .plans .title .h2 {
+  width: 1010px;
+  max-width: 100%;
+  font-size: 3.5rem;
+  font-weight: 200;
+  margin-bottom: 35px;
+}
+.plans .wrap-plans {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.plans .wrap-plans .wrap-single-plan {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.plans .wrap-plans .wrap-single-plan:nth-child(1) .single-plan {
+  height: 100%;
+}
+.plans .wrap-plans .wrap-single-plan:nth-child(1) .single-plan .title {
+  background: #fdaa00;
+}
+.plans .wrap-plans .wrap-single-plan:nth-child(2) .single-plan {
+  height: 100%;
+}
+.plans .wrap-plans .wrap-single-plan:nth-child(2) .single-plan .title {
+  background: #4f5cc1;
+}
+.plans .wrap-plans .wrap-single-plan:nth-child(3) .single-plan .title {
+  background: #37bd6c;
 }
 .plans .wrap-plans .wrap-single-plan .single-plan {
   background: #000000;
+  width: 315px;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .title {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 132px;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .title h3, .plans .wrap-plans .wrap-single-plan .single-plan .title .h3 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  width: 200px;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .title h4, .plans .wrap-plans .wrap-single-plan .single-plan .title .h4 {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .content {
+  padding: 15px 55px;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .content .price p strong {
+  font-size: 5.2rem;
+  font-weight: 500;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .content .text {
+  margin-bottom: 20px;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .content .text p {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .content .link {
+  display: flex;
+}
+.plans .wrap-plans .wrap-single-plan .single-plan .content .link a {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  width: 165px;
+  height: 65px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+  margin-bottom: 40px;
 }
 .plans .wrap-plans .wrap-single-plan .other-plan {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
   background: #000000;
+  width: 315px;
+  padding: 35px 50px;
 }
+.plans .wrap-plans .wrap-single-plan .other-plan .title p {
+  font-size: 2.45rem;
+  font-weight: 300;
+  color: #d48100;
+  width: 240px;
+  margin-bottom: 30px;
+}
+.plans .wrap-plans .wrap-single-plan .other-plan .content a {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  width: 165px;
+  height: 65px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .testimonials {
   background: #ffffff;
   color: #000000;
