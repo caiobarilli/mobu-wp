@@ -5,10 +5,7 @@
  * @package MobuTheme
  */
 
-$date = get_query_var('post_date');
-$category = get_query_var('post_category');
-$title = get_query_var('post_title');
-$content = get_query_var('post_content');
+$video_embed = get_field('post_video_embed');
 
 ?>
 
@@ -23,19 +20,55 @@ $content = get_query_var('post_content');
             <div class="category">
                 <small>
                     <?php
-                    echo '<span> ● </span>';
-                    _e($category, 'mobu_theme');
+                    $categories = get_the_category();
+                    if (!empty($categories)) {
+                        $last_category = array_pop($categories);
+                        echo '<span> ● </span>';
+                        _e($last_category->name, 'mobu_theme');
+                    }
                     ?>
                 </small>
             </div>
         </div>
     </div>
-    <div class="title-single-post">
-        <h2>
-            <?php _e($title, 'mobu_theme'); ?>
-        </h2>
+    <div class="wrap-content-single-post">
+        <div class="video-single-post">
+            <?php echo $video_embed; ?>
+        </div>
+        <div class="title-single-post">
+            <h2>
+                <?php _e(get_the_title(), 'mobu_theme'); ?>
+            </h2>
+        </div>
+        <div class="content-single-post">
+            <?php _e(get_the_content(), 'mobu_theme'); ?>
+        </div>
     </div>
-    <div class="title-single-post">
-        <?php _e($content, 'mobu_theme'); ?>
+    <div class="wrap-bottom-single-post">
+        <div class="pagination-single-post">
+            <?php
+            $prev_post = get_previous_post();
+            if (!empty($prev_post)) : ?>
+                <div class="previous-post">
+                    <a href="<?php echo get_permalink($prev_post->ID); ?>">
+                        <svg viewBox="0 0 16 16" height="48" width="48" focusable="false" role="img" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"></path>
+                        </svg>
+                    </a>
+                </div>
+            <?php endif; ?>
+
+            <?php
+            $next_post = get_next_post();
+            if (!empty($next_post)) : ?>
+                <div class="next-post">
+                    <a href="<?php echo get_permalink($next_post->ID); ?>">
+                        <svg viewBox="0 0 16 16" height="48" width="48" focusable="false" role="img" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"></path>
+                        </svg>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
 </div>

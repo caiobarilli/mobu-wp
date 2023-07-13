@@ -13154,7 +13154,7 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   color: #000000;
   background: #ffcb2f;
   width: 40%;
-  padding: 120px 0 0 120px;
+  padding: 120px 0 120px 120px;
 }
 @media (max-width: 1199.98px) {
   .news .main-content {
@@ -13169,6 +13169,9 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
 }
 .news .main-content .wrap-content {
   width: fit-content;
+}
+.news .main-content .wrap-content .title {
+  cursor: pointer;
 }
 .news .main-content .wrap-content .title h2, .news .main-content .wrap-content .title .h2 {
   display: flex;
@@ -13204,6 +13207,9 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   .news .main-content .wrap-content .title h2 strong, .news .main-content .wrap-content .title .h2 strong {
     font-size: 2.7rem;
   }
+}
+.news .main-content .wrap-content .text {
+  cursor: pointer;
 }
 .news .main-content .wrap-content .text p {
   font-size: 2rem;

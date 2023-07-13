@@ -76,6 +76,12 @@ $shortcode_form_contact = get_theme_mod('set_shortcode_form_contact');
 $customizer_repeater_social = get_theme_mod('customizer_repeater_social', json_encode(array()));
 $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 
+// Share Link
+// if (isset($_GET['p'])) {
+//     $param_p = $_GET['p'];
+//     echo 'Valor do parâmetro "p": ' . $param_p;
+// }
+
 ?>
 
 <header id="home">
@@ -345,7 +351,6 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
                     endwhile;
                     wp_reset_postdata();
                 endif;
-
                 ?>
             </div>
         </div>

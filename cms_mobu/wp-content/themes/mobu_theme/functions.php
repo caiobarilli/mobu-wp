@@ -149,21 +149,23 @@ function public_assets()
 function show_post_callback()
 {
     if (isset($_POST['postId'])) {
-        $postId = $_POST['postId'];
+        $post_id = $_POST['postId'];
 
-        $post = get_post($postId);
+        $args = array(
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'p'              => $post_id,
+            'posts_per_page' => 1,
+        );
 
-        $categories = get_the_category($postId);
-        $category = $categories[0];
+        $query = new WP_Query($args);
 
-        set_query_var('post_date', $post->post_date);
-        set_query_var('post_category', $category->name);
-        set_query_var('post_title', $post->post_title);
-        set_query_var('post_content', $post->post_content);
-        get_template_part('template-parts/content', 'post');
-
-        wp_reset_query();
-        wp_reset_postdata();
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+                get_template_part('template-parts/content', 'post');
+            endwhile;
+            wp_reset_postdata();
+        endif;
     }
 
     wp_die();
