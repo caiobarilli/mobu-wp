@@ -538,130 +538,143 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
         </div>
     </section>
 
-    <section id="news" class="news">
-        <div class="left-content">
-            <div class="wrap-content">
+    <div class="full-post-wrap">
 
-                <?php
+        <div class="single-post-news">
+            <div class="backdrop-post-news"></div>
+            <div class="wrap-single-post">
+            </div>
+        </div>
 
-                $args = array(
-                    'post_type' => 'post',
-                    'order' => 'DESC',
-                    'posts_per_page' => 6,
-                );
+        <section id="news" class="news">
+            <div class="left-content">
+                <div class="wrap-content">
 
-                $wp_query = new WP_Query($args);
+                    <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'order' => 'DESC',
+                        'posts_per_page' => 6,
+                    );
 
-                if ($wp_query->have_posts()) :
-                    while ($wp_query->have_posts()) : $wp_query->the_post();
+                    $wp_query = new WP_Query($args);
 
-                ?>
-                        <div class="single-news">
-                            <div class="wrap-single-news">
-                                <div class="news-infos">
-                                    <div class="date">
-                                        <small>
-                                            <?php echo date('F j, Y', strtotime(get_the_date())); ?>
-                                        </small>
+                    if ($wp_query->have_posts()) :
+                        while ($wp_query->have_posts()) : $wp_query->the_post();
+
+                    ?>
+                            <div class="single-news">
+                                <div class="wrap-single-news">
+                                    <div class="news-infos">
+                                        <div class="date">
+                                            <small>
+                                                <?php echo date('F j, Y', strtotime(get_the_date())); ?>
+                                            </small>
+                                        </div>
+                                        <div class="category">
+                                            <small>
+                                                <?php
+                                                $categories = get_the_category();
+                                                if (!empty($categories)) {
+                                                    $last_category = array_pop($categories);
+                                                    echo '<span> ● </span>';
+                                                    _e($last_category->name, 'mobu_theme');
+                                                }
+                                                ?>
+                                            </small>
+                                        </div>
                                     </div>
-                                    <div class="category">
-                                        <small>
-                                            <?php
-                                            $categories = get_the_category();
-                                            if (!empty($categories)) {
-                                                $last_category = array_pop($categories);
-                                                echo '<span> ● </span>';
-                                                _e($last_category->name, 'mobu_theme');
-                                            }
-                                            ?>
-                                        </small>
+                                    <div class="news-content">
+                                        <a href="#" class="title">
+                                            <h3>
+                                                <?php _e(title_excerpt(50), 'mobu_theme'); ?>
+                                            </h3>
+                                        </a>
+                                        <a href="#" class="text">
+                                            <p>
+                                                <?php
+
+                                                if (get_the_excerpt()) {
+                                                    echo custom_excerpt(94, get_the_excerpt());
+                                                } elseif (get_the_content()) {
+                                                    echo custom_excerpt(94, get_the_content());
+                                                }
+
+                                                ?>
+                                            </p>
+                                        </a>
                                     </div>
                                 </div>
-                                <a href="#" class="news-title">
-                                    <h3>
-                                        <?php _e(title_excerpt(50), 'mobu_theme'); ?>
-                                    </h3>
-                                </a>
-                                <a href="#" class="news-content">
-                                    <p>
-                                        <?php
-
-                                        if (get_the_excerpt()) {
-                                            echo custom_excerpt(94, get_the_excerpt());
-                                        } elseif (get_the_content()) {
-                                            echo custom_excerpt(94, get_the_content());
-                                        }
-
-                                        ?>
-                                    </p>
-                                </a>
+                                <form>
+                                    <input type="hidden" name="post_id" value="<?php echo get_the_ID(); ?>">
+                                </form>
                             </div>
-                        </div>
-                <?php
-                    endwhile;
-                    wp_reset_postdata();
-                endif;
-                ?>
-
-            </div>
-        </div>
-
-        <div class="main-content">
-            <div class="wrap-content">
-                <div class="title">
-                    <h2>
-                        <strong>
-                            <?php _e('04', 'mobu_theme'); ?>
-                        </strong>
-                        <?php _e($title_news, 'mobu_theme'); ?>
-                    </h2>
-                </div>
-                <div class="text">
-                    <p>
-                        <?php _e($subtitle_news, 'mobu_theme'); ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contato" class="contact">
-        <div class="left-content">
-            <div class="wrap-content">
-                <div class="title">
-                    <h2>
-                        <strong>
-                            <?php _e('05', 'mobu_theme'); ?>
-                        </strong>
-                        <?php _e($title_contact, 'mobu_theme'); ?>
-                    </h2>
-                </div>
-                <ul class="social">
                     <?php
-                    if (count($customizer_repeater_social_decoded) >= 2) :
-                        foreach ($customizer_repeater_social_decoded as $repeater_item) :
-                    ?>
-
-                            <li>
-                                <a href="<?php echo $repeater_item->link; ?>">
-                                    <img src="<?php echo $repeater_item->image_url; ?>" height="60" width="60" alt="Icone ilustrativo" />
-                                </a>
-                            </li>
-
-                    <?php
-                        endforeach;
+                        endwhile;
+                        wp_reset_postdata();
                     endif;
                     ?>
-                </ul>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="wrap-form">
-                <?php echo do_shortcode($shortcode_form_contact); ?>
-            </div>
-        </div>
-    </section>
 
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="wrap-content">
+                    <div class="title">
+                        <h2>
+                            <strong>
+                                <?php _e('04', 'mobu_theme'); ?>
+                            </strong>
+                            <?php _e($title_news, 'mobu_theme'); ?>
+                        </h2>
+                    </div>
+                    <div class="text">
+                        <p>
+                            <?php _e($subtitle_news, 'mobu_theme'); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <div class="left-content">
+                <div class="wrap-content">
+                    <div class="title">
+                        <h2>
+                            <strong>
+                                <?php _e('05', 'mobu_theme'); ?>
+                            </strong>
+                            <?php _e($title_contact, 'mobu_theme'); ?>
+                        </h2>
+                    </div>
+                    <ul class="social">
+                        <?php
+                        if (count($customizer_repeater_social_decoded) >= 2) :
+                            foreach ($customizer_repeater_social_decoded as $repeater_item) :
+                        ?>
+
+                                <li>
+                                    <a href="<?php echo $repeater_item->link; ?>">
+                                        <img src="<?php echo $repeater_item->image_url; ?>" height="60" width="60" alt="Icone ilustrativo" />
+                                    </a>
+                                </li>
+
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="wrap-form">
+                    <?php echo do_shortcode($shortcode_form_contact); ?>
+                </div>
+            </div>
+        </section>
+
+    </div>
 </main>
 
 <?php

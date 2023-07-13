@@ -76,4 +76,40 @@ $.when($.ready).then(function () {
       });
     });
   }
+
+  /**
+   * Team content
+   */
+  if ($(".news").length) {
+    const singleNews = document.querySelectorAll(".single-news"),
+      singlePostNews = document.querySelector(".single-post-news"),
+      backdrop = document.querySelector(".backdrop-post-news"),
+      singlePost = document.querySelector(".wrap-single-post");
+
+    backdrop.addEventListener("click", () => {
+      singlePostNews.style.display = "none";
+    });
+
+    singleNews.forEach((single) => {
+      const content = single.querySelector(".news-content"),
+        postId = single.querySelector('input[name="post_id"]').value;
+
+      content.addEventListener("click", () => {
+        $.ajax({
+          url: wp.ajax_url,
+          type: "POST",
+          data: {
+            action: "show_post",
+            postId: postId,
+          },
+          success: function (response) {
+            if (response) {
+              singlePost.innerHTML = response;
+              singlePostNews.style.display = "block";
+            }
+          },
+        });
+      });
+    });
+  }
 });

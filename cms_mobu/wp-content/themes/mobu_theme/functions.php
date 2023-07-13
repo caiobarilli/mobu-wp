@@ -115,7 +115,6 @@ function mobu_theme_menu()
  */
 function header_scripts()
 {
-
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
         wp_dequeue_script('jquery');
         wp_deregister_script('jquery');
@@ -127,7 +126,7 @@ function header_scripts()
 
         wp_register_script('mobu_home_scripts', get_template_directory_uri() . '/dist/home.js', array(), THEME_VERSION); // Home scripts
         wp_enqueue_script('mobu_home_scripts'); // Enqueue it!
-
+        wp_localize_script('mobu_home_scripts', 'wp', ['ajax_url' => admin_url('admin-ajax.php')]); // Disponibiliza as informações no objeto JavaScript
     }
 }
 
@@ -138,6 +137,36 @@ function public_assets()
 {
     wp_register_style('mobu_theme_styles', get_template_directory_uri() . '/dist/app.css', array(), THEME_VERSION);
     wp_enqueue_style('mobu_theme_styles'); // Enqueue it!
+}
+
+/**
+ *
+ * Função de retorno para atualizar o slider de receitas do blog. *
+ * Esta função é chamada por meio de uma solicitação POST e atualiza o slider com base no termId fornecido.
+ *
+ * @return void
+ */
+function show_post_callback()
+{
+    if (isset($_POST['postId'])) {
+        $postId = $_POST['postId'];
+
+        $post = get_post($postId);
+
+        $categories = get_the_category($postId);
+        $category = $categories[0];
+
+        set_query_var('post_date', $post->post_date);
+        set_query_var('post_category', $category->name);
+        set_query_var('post_title', $post->post_title);
+        set_query_var('post_content', $post->post_content);
+        get_template_part('template-parts/content', 'post');
+
+        wp_reset_query();
+        wp_reset_postdata();
+    }
+
+    wp_die();
 }
 
 /**
@@ -314,6 +343,9 @@ add_action('login_head', 'change_logo_login_head'); // Change admin logo
 add_action('wp_enqueue_scripts', 'public_assets', 99); // Add Theme Stylesheet
 add_action('wp_enqueue_scripts', 'remove_global_styles', 100); // Remove Global styles from WordPress
 add_action('customize_register', 'customizer_removes', 50); // Remove static_front_page from Wp Customizer
+
+add_action('wp_ajax_show_post', 'show_post_callback');
+add_action('wp_ajax_nopriv_show_post', 'show_post_callback');
 
 // Remove Actions
 remove_action('wp_head', 'print_emoji_detection_script', 7); // Remove wp emoji

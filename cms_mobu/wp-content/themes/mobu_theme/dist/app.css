@@ -13074,6 +13074,7 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position: relative;
 }
 .news .left-content {
   display: flex;
@@ -13124,29 +13125,29 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   font-weight: 500;
   text-transform: uppercase;
 }
-.news .left-content .wrap-content .single-news .news-title {
+.news .left-content .wrap-content .single-news .news-content .title {
   min-height: 43px;
   color: #000000;
   text-decoration: none;
 }
-.news .left-content .wrap-content .single-news .news-title h3, .news .left-content .wrap-content .single-news .news-title .h3 {
+.news .left-content .wrap-content .single-news .news-content .title h3, .news .left-content .wrap-content .single-news .news-content .title .h3 {
   font-size: 1.8rem;
   font-weight: 700;
   width: 315px;
   margin: 20px 0;
 }
-.news .left-content .wrap-content .single-news .news-content {
+.news .left-content .wrap-content .single-news .news-content .text {
   color: #000000;
   text-decoration: none;
 }
-.news .left-content .wrap-content .single-news .news-content p {
+.news .left-content .wrap-content .single-news .news-content .text p {
   color: #000000;
   font-size: 1.4rem;
   font-weight: 500;
   width: 250px;
 }
-.news .left-content .wrap-content .single-news:hover .news-title,
-.news .left-content .wrap-content .single-news:hover .news-content {
+.news .left-content .wrap-content .single-news .news-content:hover .title,
+.news .left-content .wrap-content .single-news .news-content:hover .text {
   text-decoration: underline;
 }
 .news .main-content {
@@ -13219,6 +13220,33 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   .news .main-content .wrap-content .text p {
     font-size: 1.8rem;
   }
+}
+
+.full-post-wrap {
+  position: relative;
+}
+.full-post-wrap .single-post-news {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.full-post-wrap .single-post-news .backdrop-post-news {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(80, 103, 193, 0.8);
+  z-index: 1;
+  top: 0;
+}
+.full-post-wrap .single-post-news .wrap-single-post {
+  background: #5066c1;
+  width: 60%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
 }
 
 .contact {
