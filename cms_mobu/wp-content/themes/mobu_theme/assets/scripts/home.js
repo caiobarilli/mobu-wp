@@ -20,6 +20,21 @@ $.when($.ready).then(function () {
   }
 
   /**
+   * Video (play/pause actions)
+   */
+  if ($(".wrap-video-cta").length) {
+    const videoElement = document.querySelector(".video-cta");
+
+    videoElement.addEventListener("click", () => {
+      if (videoElement.paused) {
+        videoElement.play();
+      } else {
+        videoElement.pause();
+      }
+    });
+  }
+
+  /**
    * Testimonials slider
    */
   if ($(".testimonials-slider").length) {

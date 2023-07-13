@@ -24,6 +24,18 @@ $title_services_about = get_theme_mod('set_title_services_about');
 $customizer_repeater_services = get_theme_mod('customizer_repeater_services', json_encode(array()));
 $customizer_repeater_services_decoded = json_decode($customizer_repeater_services);
 
+// CTA
+$text_left_cta = get_theme_mod('set_txt_left_cta');
+$capa_cta = get_theme_mod('set_capa_cta');
+$video_cta = get_theme_mod('set_video_cta');
+$txt_left_final_cta = get_theme_mod('set_txt_left_final_cta');
+$txt_right_final_cta = get_theme_mod('set_txt_right_final_cta');
+
+$title_cta = get_theme_mod('set_title_cta');
+$text_cta = get_theme_mod('set_text_cta');
+$txt_btn_cta = get_theme_mod('set_txt_btn_cta');
+$link_cta = get_theme_mod('set_link_cta');
+
 // Time
 $title_team = get_theme_mod('set_title_team');
 $text_team = get_theme_mod('set_text_team');
@@ -65,7 +77,6 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 <header id="home">
     <div class="swiper header-slider">
         <div class="swiper-wrapper">
-
             <?php
 
             $args = array(
@@ -104,10 +115,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
                 endwhile;
                 wp_reset_postdata();
             endif;
-
             ?>
-
-
         </div>
         <div class="wrap-pagination">
             <div class="swiper-pagination"></div>
@@ -175,10 +183,85 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
         </div>
     </section>
 
-    <section class="course"></section>
+    <section id="curso" class="course"></section>
 
-    <section class="cta">
+    <section id="pra_quem" class="cta">
+        <?php if (wp_is_mobile()) : ?>
+            <div class="main-content">
+                <div class="wrap-content">
+                    <div class="title">
+                        <h2>
+                            <strong>
+                                <?php _e('03', 'mobu_theme'); ?>
+                            </strong>
+                            <?php _e($title_cta, 'mobu_theme'); ?>
+                        </h2>
+                    </div>
+                    <div class="text">
+                        <p>
+                            <?php _e($text_cta, 'mobu_theme'); ?>
+                        </p>
+                        <div class="btn-cta">
+                            <a href=" <?php echo $link_cta; ?>">
+                                <?php _e($txt_btn_cta, 'mobu_theme'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
 
+        <div class="left-content">
+            <div class="wrap-content">
+                <div class="text">
+                    <p>
+                        <?php _e($text_left_cta, 'mobu_theme'); ?>
+                    </p>
+                </div>
+                <div class="wrap-video-cta">
+                    <video class="video-cta" poster="<?php echo $capa_cta; ?>">
+                        <source src="<?php echo $video_cta; ?>" type="video/mp4">
+                    </video>
+                </div>
+                <div class="content">
+                    <div class="left-text">
+                        <p>
+                            <?php _e($txt_left_final_cta, 'mobu_theme'); ?>
+                        </p>
+                    </div>
+                    <div class="right-text">
+                        <p>
+                            <?php _e($txt_right_final_cta, 'mobu_theme'); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php if (!wp_is_mobile()) : ?>
+            <div class="main-content">
+                <div class="wrap-content">
+                    <div class="title">
+                        <h2>
+                            <strong>
+                                <?php _e('03', 'mobu_theme'); ?>
+                            </strong>
+                            <?php _e($title_cta, 'mobu_theme'); ?>
+                        </h2>
+                    </div>
+                    <div class="text">
+                        <p>
+                            <?php _e($text_cta, 'mobu_theme'); ?>
+                        </p>
+                        <div class="btn-cta">
+                            <a href=" <?php echo $link_cta; ?>">
+                                <?php _e($txt_btn_cta, 'mobu_theme'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
     </section>
 
     <section id="time" class="team">
@@ -451,7 +534,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
         </div>
     </section>
 
-    <section class="blog"></section>
+    <section id="news" class="blog"></section>
 
     <section id="contato" class="contact">
         <div class="left-content">
