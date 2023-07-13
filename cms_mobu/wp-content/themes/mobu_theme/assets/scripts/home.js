@@ -1,3 +1,4 @@
+import { set } from "immutable";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -78,7 +79,7 @@ $.when($.ready).then(function () {
   }
 
   /**
-   * Team content
+   * News
    */
   if ($(".news").length) {
     const singleNews = document.querySelectorAll(".single-news"),
@@ -112,4 +113,87 @@ $.when($.ready).then(function () {
       });
     });
   }
+
+  /**
+   * Single post News
+   */
+  // Selecionar a div com a classe "wrap-single-post"
+  const wrapSinglePost = document.querySelector(".wrap-single-post");
+
+  // Criar um observador de mutação
+  const observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      // Verificar se a div "wrap-single-post" foi modificada
+      if (mutation.target === wrapSinglePost) {
+        const singlePostNews = document.querySelector(".single-post-news"),
+          singlePost = document.querySelector(".wrap-single-post");
+
+        const prevNews = document.querySelector(".previous-post"),
+          nextNews = document.querySelector(".next-post");
+
+        const prevId = document.querySelector(
+          '.previous-post > form > input[name="post_id"]'
+        ).value;
+
+        const nextId = document.querySelector(
+          '.next-post > form > input[name="post_id"]'
+        ).value;
+
+        // Prev
+        prevNews.addEventListener("click", () => {
+          setTimeout(() => {
+            singlePostNews.style.display = "none";
+          }, 200);
+
+          if (prevId) {
+            $.ajax({
+              url: wp.ajax_url,
+              type: "POST",
+              data: {
+                action: "show_post",
+                postId: prevId,
+              },
+              success: function (response) {
+                if (response) {
+                  singlePost.innerHTML = response;
+                  singlePostNews.style.display = "block";
+                }
+
+                setTimeout(() => {
+                  singlePostNews.style.display = "block";
+                }, 400);
+              },
+            });
+          }
+        });
+
+        // Next
+        nextNews.addEventListener("click", () => {
+          if (nextId) {
+            $.ajax({
+              url: wp.ajax_url,
+              type: "POST",
+              data: {
+                action: "show_post",
+                postId: nextId,
+              },
+              success: function (response) {
+                if (response) {
+                  singlePost.innerHTML = response;
+                  singlePostNews.style.display = "block";
+                }
+              },
+            });
+          }
+        });
+      }
+    });
+  });
+
+  const options = {
+    childList: true,
+    subtree: false,
+  };
+
+  observer.observe(wrapSinglePost, options);
 });

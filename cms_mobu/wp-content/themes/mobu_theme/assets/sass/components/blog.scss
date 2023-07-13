@@ -140,8 +140,6 @@
 
             .title
             {
-                cursor: pointer;
-
                 h2
                 {
                     display: flex;
@@ -185,8 +183,6 @@
 
             .text
             {
-                cursor: pointer;
-
                 p
                 {
                     font-size: 2rem;
@@ -241,6 +237,67 @@
             position: relative;
             z-index: $layer-2;
             margin-left: auto;
+
+            .single-post
+            {
+                .wrap-top-single-post
+                {
+
+                }
+
+                .wrap-content-single-post
+                {
+
+                }
+
+                .wrap-bottom-single-post
+                {
+                    .pagination-single-post
+                    {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .previous-post
+                        {
+                            cursor: pointer;
+                            margin-right: 20px;
+
+                            &:hover
+                            {
+                                svg
+                                {
+                                    fill: $yellow_5;
+                                }
+                            }
+                        }
+
+                        .next-post
+                        {
+                            cursor: pointer;
+
+                            &:hover
+                            {
+                                svg
+                                {
+                                    fill: $yellow_5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
     }

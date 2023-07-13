@@ -592,7 +592,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
                                     <div class="news-content">
                                         <a href="#" class="title">
                                             <h3>
-                                                <?php _e(title_excerpt(50), 'mobu_theme'); ?>
+                                                <?php _e(title_excerpt(60), 'mobu_theme'); ?>
                                             </h3>
                                         </a>
                                         <a href="#" class="text">
