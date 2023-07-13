@@ -163,31 +163,6 @@ function custom_excerpt($count, $text)
 }
 
 /**
- * Post Excerpt
- *
- * Esta função retorna um trecho personalizado do conteúdo do post.
- *
- * @param int $limit O limite máximo de palavras para o trecho.
- * @return string O trecho de texto limitado.
- */
-function post_excerpt($limit)
-{
-    $my_excerpt = apply_filters('the_excerpt', get_the_excerpt());
-    $excerpt = explode(' ', $my_excerpt, $limit);
-
-    if (count($excerpt) >= $limit) {
-        array_pop($excerpt);
-        $excerpt = implode(" ", $excerpt) . '...';
-    } else {
-        $excerpt = implode(" ", $excerpt);
-    }
-
-    $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
-
-    return $excerpt;
-}
-
-/**
  * Custom Title
  *
  * Esta função retorna um título personalizado do post.

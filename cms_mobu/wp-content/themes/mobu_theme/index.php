@@ -557,41 +557,44 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 
                 ?>
                         <div class="single-news">
-                            <div class="news-infos">
-                                <div class="date">
-                                    <span>
-                                        <?php echo date('F j, Y', strtotime(get_the_date())); ?>
-                                    </span>
+                            <div class="wrap-single-news">
+                                <div class="news-infos">
+                                    <div class="date">
+                                        <small>
+                                            <?php echo date('F j, Y', strtotime(get_the_date())); ?>
+                                        </small>
+                                    </div>
+                                    <div class="category">
+                                        <small>
+                                            <?php
+                                            $categories = get_the_category();
+                                            if (!empty($categories)) {
+                                                $last_category = array_pop($categories);
+                                                echo '<span> ● </span>';
+                                                _e($last_category->name, 'mobu_theme');
+                                            }
+                                            ?>
+                                        </small>
+                                    </div>
                                 </div>
-                                <div class="category">
-                                    <span>
+                                <a href="#" class="news-title">
+                                    <h3>
+                                        <?php _e(title_excerpt(50), 'mobu_theme'); ?>
+                                    </h3>
+                                </a>
+                                <a href="#" class="news-content">
+                                    <p>
                                         <?php
-                                        $categories = get_the_category();
-                                        if (!empty($categories)) {
-                                            $last_category = array_pop($categories);
-                                            _e('●' . $last_category->name, 'mobu_theme');
+
+                                        if (get_the_excerpt()) {
+                                            echo custom_excerpt(94, get_the_excerpt());
+                                        } elseif (get_the_content()) {
+                                            echo custom_excerpt(94, get_the_content());
                                         }
+
                                         ?>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="news-title">
-                                <h3>
-                                    <?php _e(get_the_title(), 'mobu_theme'); ?>
-                                </h3>
-                            </div>
-                            <div class="news-content">
-                                <p>
-                                    <?php
-
-                                    if (get_the_excerpt()) {
-                                        echo custom_excerpt(120, get_the_excerpt());
-                                    } elseif (get_the_content()) {
-                                        echo custom_excerpt(120, get_the_content());
-                                    }
-
-                                    ?>
-                                </p>
+                                    </p>
+                                </a>
                             </div>
                         </div>
                 <?php

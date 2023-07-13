@@ -13094,9 +13094,60 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
 }
 .news .left-content .wrap-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  max-width: 100%;
+  justify-content: space-between;
+  margin: 0;
+  width: 700px;
+}
+.news .left-content .wrap-content .single-news {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 0 35px;
+}
+.news .left-content .wrap-content .single-news .wrap-single-news {
+  width: fit-content;
+}
+.news .left-content .wrap-content .single-news .news-infos {
+  display: flex;
+}
+.news .left-content .wrap-content .single-news .news-infos .date {
+  margin-right: 5px;
+}
+.news .left-content .wrap-content .single-news .news-infos .date small, .news .left-content .wrap-content .single-news .news-infos .date .small {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.news .left-content .wrap-content .single-news .news-infos .category small, .news .left-content .wrap-content .single-news .news-infos .category .small {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.news .left-content .wrap-content .single-news .news-title {
+  min-height: 43px;
+  color: #000000;
+  text-decoration: none;
+}
+.news .left-content .wrap-content .single-news .news-title h3, .news .left-content .wrap-content .single-news .news-title .h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  width: 315px;
+  margin: 20px 0;
+}
+.news .left-content .wrap-content .single-news .news-content {
+  color: #000000;
+  text-decoration: none;
+}
+.news .left-content .wrap-content .single-news .news-content p {
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: 500;
+  width: 250px;
+}
+.news .left-content .wrap-content .single-news:hover .news-title,
+.news .left-content .wrap-content .single-news:hover .news-content {
+  text-decoration: underline;
 }
 .news .main-content {
   color: #000000;
@@ -13156,7 +13207,7 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
 .news .main-content .wrap-content .text p {
   font-size: 2rem;
   font-weight: 500;
-  width: 80%;
+  width: 130px;
 }
 @media (max-width: 991.98px) {
   .news .main-content .wrap-content .text p {
