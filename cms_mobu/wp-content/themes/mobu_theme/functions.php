@@ -145,8 +145,30 @@ function public_assets()
  *
  * Esta função retorna um trecho personalizado do conteúdo do post.
  *
+ * @param int    $count O número máximo de caracteres a serem retornados.
+ * @param string $text  O texto a ser limitado.
+ * @return string O trecho de texto limitado.
+ */
+function custom_excerpt($count, $text)
+{
+    $excerpt = strip_tags($text);
+    $conttxt = strlen($excerpt);
+    if ($conttxt >= $count) {
+        $reduz = mb_substr($excerpt, 0, $count, 'UTF-8');
+        $excerpt = $reduz . '...';
+    } else {
+        $excerpt = $excerpt;
+    }
+    return $excerpt;
+}
+
+/**
+ * Post Excerpt
+ *
+ * Esta função retorna um trecho personalizado do conteúdo do post.
+ *
  * @param int $limit O limite máximo de palavras para o trecho.
- * @return void
+ * @return string O trecho de texto limitado.
  */
 function post_excerpt($limit)
 {
@@ -162,7 +184,7 @@ function post_excerpt($limit)
 
     $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
 
-    echo $excerpt;
+    return $excerpt;
 }
 
 /**

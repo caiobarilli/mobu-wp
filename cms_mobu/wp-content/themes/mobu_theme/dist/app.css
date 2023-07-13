@@ -13070,6 +13070,106 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   max-width: 100%;
 }
 
+.news {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.news .left-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  color: #000000;
+  background: #fac900;
+  width: 60%;
+  padding: 100px 75px 100px 0;
+}
+@media (max-width: 991.98px) {
+  .news .left-content {
+    width: 100%;
+    padding: 10px;
+    justify-content: flex-start;
+  }
+}
+.news .left-content .wrap-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.news .main-content {
+  color: #000000;
+  background: #ffcb2f;
+  width: 40%;
+  padding: 120px 0 0 120px;
+}
+@media (max-width: 1199.98px) {
+  .news .main-content {
+    padding: 50px 0 0 50px;
+  }
+}
+@media (max-width: 991.98px) {
+  .news .main-content {
+    width: 100%;
+    padding: 0 2%;
+  }
+}
+.news .main-content .wrap-content {
+  width: fit-content;
+}
+.news .main-content .wrap-content .title h2, .news .main-content .wrap-content .title .h2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 9.2rem;
+  font-weight: 300;
+  width: 80px;
+}
+@media (max-width: 991.98px) {
+  .news .main-content .wrap-content .title h2, .news .main-content .wrap-content .title .h2 {
+    font-size: 6.2rem;
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .news .main-content .wrap-content .title h2, .news .main-content .wrap-content .title .h2 {
+    font-size: 3.2rem;
+  }
+}
+.news .main-content .wrap-content .title h2 strong, .news .main-content .wrap-content .title .h2 strong {
+  font-size: 6.7rem;
+  font-weight: 700;
+  border-top: 4px solid #000000;
+}
+@media (max-width: 991.98px) {
+  .news .main-content .wrap-content .title h2 strong, .news .main-content .wrap-content .title .h2 strong {
+    font-size: 3.7rem;
+    width: fit-content;
+  }
+}
+@media (max-width: 767.98px) {
+  .news .main-content .wrap-content .title h2 strong, .news .main-content .wrap-content .title .h2 strong {
+    font-size: 2.7rem;
+  }
+}
+.news .main-content .wrap-content .text p {
+  font-size: 2rem;
+  font-weight: 500;
+  width: 80%;
+}
+@media (max-width: 991.98px) {
+  .news .main-content .wrap-content .text p {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .news .main-content .wrap-content .text p {
+    font-size: 1.8rem;
+  }
+}
+
 .contact {
   display: flex;
   flex-direction: row;

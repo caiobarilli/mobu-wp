@@ -18,6 +18,7 @@ function mobu_theme_customizer($wp_customize)
     require get_template_directory() . '/inc/customizer/team.php';
     require get_template_directory() . '/inc/customizer/modules.php';
     require get_template_directory() . '/inc/customizer/testimonials.php';
+    require get_template_directory() . '/inc/customizer/blog.php';
     require get_template_directory() . '/inc/customizer/contact.php';
 }
 

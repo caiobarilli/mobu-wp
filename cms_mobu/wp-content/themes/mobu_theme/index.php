@@ -66,6 +66,10 @@ $customizer_repeater_depoimentos_decoded = json_decode($customizer_repeater_depo
 $customizer_repeater_clients = get_theme_mod('customizer_repeater_clients', json_encode(array()));
 $customizer_repeater_clients_decoded = json_decode($customizer_repeater_clients);
 
+// News
+$title_news = get_theme_mod('set_title_news');
+$subtitle_news = get_theme_mod('set_subtitle_news');
+
 // Contato
 $title_contact = get_theme_mod('set_title_contact');
 $shortcode_form_contact = get_theme_mod('set_shortcode_form_contact');
@@ -534,7 +538,89 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
         </div>
     </section>
 
-    <section id="news" class="blog"></section>
+    <section id="news" class="news">
+        <div class="left-content">
+            <div class="wrap-content">
+
+                <?php
+
+                $args = array(
+                    'post_type' => 'post',
+                    'order' => 'DESC',
+                    'posts_per_page' => 6,
+                );
+
+                $wp_query = new WP_Query($args);
+
+                if ($wp_query->have_posts()) :
+                    while ($wp_query->have_posts()) : $wp_query->the_post();
+
+                ?>
+                        <div class="single-news">
+                            <div class="news-infos">
+                                <div class="date">
+                                    <span>
+                                        <?php echo date('F j, Y', strtotime(get_the_date())); ?>
+                                    </span>
+                                </div>
+                                <div class="category">
+                                    <span>
+                                        <?php
+                                        $categories = get_the_category();
+                                        if (!empty($categories)) {
+                                            $last_category = array_pop($categories);
+                                            _e('●' . $last_category->name, 'mobu_theme');
+                                        }
+                                        ?>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="news-title">
+                                <h3>
+                                    <?php _e(get_the_title(), 'mobu_theme'); ?>
+                                </h3>
+                            </div>
+                            <div class="news-content">
+                                <p>
+                                    <?php
+
+                                    if (get_the_excerpt()) {
+                                        echo custom_excerpt(120, get_the_excerpt());
+                                    } elseif (get_the_content()) {
+                                        echo custom_excerpt(120, get_the_content());
+                                    }
+
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
+
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="wrap-content">
+                <div class="title">
+                    <h2>
+                        <strong>
+                            <?php _e('04', 'mobu_theme'); ?>
+                        </strong>
+                        <?php _e($title_news, 'mobu_theme'); ?>
+                    </h2>
+                </div>
+                <div class="text">
+                    <p>
+                        <?php _e($subtitle_news, 'mobu_theme'); ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contato" class="contact">
         <div class="left-content">
