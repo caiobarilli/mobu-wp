@@ -16,6 +16,7 @@
 
 require_once get_stylesheet_directory() . '/inc/plugins.php';
 require_once get_stylesheet_directory() . '/inc/customizer.php';
+require_once get_stylesheet_directory() . '/inc/custom-walker.php';
 
 /*------------------------------------*\
     Constansts
@@ -40,6 +41,7 @@ if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
     add_image_size('logo-mobu', 256, 54, true);
     add_image_size('post-banner-slider', 1920, 1040, true);
+    add_image_size('image-team', 330, 330, true);
 
     // Localization Support
     // load_theme_textdomain('mobu_theme', get_template_directory() . '/languages');
@@ -56,6 +58,7 @@ function main_nav()
             'container'       => 'div',
             'container_id'    => 'header-menu',
             'menu_class'      => 'header-menu',
+            'walker'          => new Smooth_Scroll_Walker(),
         ),
     );
 }
@@ -119,10 +122,10 @@ function header_scripts()
 
         global $wp_query;
 
-        wp_register_script('mobu_theme_scripts', get_template_directory_uri() . '/dist/app.js', array(), THEME_VERSION); // Custom scripts
+        wp_register_script('mobu_theme_scripts', get_template_directory_uri() . '/dist/app.js', array(), THEME_VERSION); // App scripts
         wp_enqueue_script('mobu_theme_scripts'); // Enqueue it!
 
-        wp_register_script('mobu_home_scripts', get_template_directory_uri() . '/dist/home.js', array(), THEME_VERSION); // Custom scripts
+        wp_register_script('mobu_home_scripts', get_template_directory_uri() . '/dist/home.js', array(), THEME_VERSION); // Home scripts
         wp_enqueue_script('mobu_home_scripts'); // Enqueue it!
 
     }

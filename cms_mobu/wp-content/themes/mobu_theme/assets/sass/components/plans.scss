@@ -1,0 +1,253 @@
+
+.plans
+{
+    background: $dark_1;
+    padding: 60px 0 120px;
+    @include media-breakpoint-down(md)
+    {
+        padding: 60px 0 0;
+    }
+
+    .title-plans
+    {
+        display: flex;
+        width: 1080px;
+        max-width: 100%;
+        margin: 0 auto 25px;
+
+        @include media-breakpoint-down(xl)
+        {
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        h2
+        {
+            width: 1010px;
+            max-width: 100%;
+            font-size: 3.5rem;
+            font-weight: 200;
+
+            @include media-breakpoint-down(xl)
+            {
+                width: 96%;
+            }
+
+            @include media-breakpoint-down(md)
+            {
+                width: 100%;
+                font-size: 2.8rem;
+                padding: 0 4%;
+            }
+
+        }
+    }
+
+    .wrap-plans
+    {
+        display: flex;
+        justify-content: space-between;
+        width: 1080px;
+        max-width: 100%;
+        margin: 0 auto;
+
+        @include media-breakpoint-down(xl)
+        {
+            width: 96%;
+        }
+
+        @include media-breakpoint-down(lg)
+        {
+            width: 100%;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .wrap-single-plan
+        {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            @include media-breakpoint-down(md)
+            {
+                margin: 0 0 50px;
+            }
+
+            &:nth-child(1)
+            {
+                .single-plan
+                {
+                    .title
+                    {
+                        background: $yellow_2;
+                    }
+                }
+            }
+
+            &:nth-child(2)
+            {
+                .single-plan
+                {
+                    .title
+                    {
+                        background: $purple;
+                    }
+                }
+            }
+
+            &:nth-child(3)
+            {
+                .single-plan
+                {
+                    .title
+                    {
+                        background: $green_1;
+                    }
+                }
+            }
+
+            .single-plan
+            {
+                background: $black;
+                width: 315px;
+
+                @include media-breakpoint-down(xl)
+                {
+                    width: 295px;
+                }
+
+                .title
+                {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    align-content: center;
+                    justify-content: center;
+                    height: 132px;
+
+                    h3
+                    {
+                        font-size: 2.3rem;
+                        font-weight: 700;
+                        width: 200px;
+                    }
+
+                    h4
+                    {
+                        font-size: 1.75rem;
+                        font-weight: 300;
+                    }
+                }
+
+                .content
+                {
+                    padding: 0 55px;
+
+                    .price
+                    {
+                        p
+                        {
+                            margin: 0;
+
+                            strong
+                            {
+                                font-size: 5.2rem;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    .text
+                    {
+                        p
+                        {
+                            font-size: 1.75rem;
+                            font-weight: 300;
+                            line-height: 2rem;
+                            margin: 0;
+                        }
+                    }
+
+                    .link
+                    {
+                        height: 100%;
+
+                        a
+                        {
+                            width: 165px;
+                            height: 65px;
+
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: center;
+
+                            font-size: 1.75rem;
+                            font-weight: 800;
+                            text-decoration: none;
+                            text-transform: capitalize;
+
+                            color: $white;
+
+                            border: 2px solid $white;
+                            border-radius: 6px;
+                            margin: 20px 0;
+                        }
+                    }
+                }
+            }
+
+            .other-plan
+            {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                background: $black;
+                width: 315px;
+                padding: 35px 50px;
+                margin: 50px 0 0;
+
+                .title
+                {
+                    p
+                    {
+                        font-size: 2.45rem;
+                        font-weight: 300;
+                        color: $yellow_1;
+                        width: 240px;
+                        margin-bottom: 15px;
+                        line-height: 2rem;
+                    }
+                }
+
+                .content
+                {
+                    a
+                    {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 2.6rem;
+                        font-weight: 800;
+                        border: 2px solid $white;
+                        border-radius: 6px;
+                        width: 165px;
+                        height: 65px;
+                        color: $white;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,230 @@
+
+.team
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .left-content
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        background: $orange_1;
+        width: 40%;
+        padding: 100px 75px 100px 0;
+
+        @include media-breakpoint-down(lg)
+        {
+            width: 100%;
+            padding: 10px;
+            justify-content: flex-start;
+        }
+
+        .wrap-content
+        {
+            width: fit-content;
+
+            .title
+            {
+                h2
+                {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 9.2rem;
+                    font-weight: 300;
+                    width: 80px;
+
+                    @include media-breakpoint-down(lg)
+                    {
+                        font-size: 6.2rem;
+                        width: 100%;
+                        margin: 20px 0;
+                    }
+
+                    @include media-breakpoint-down(md)
+                    {
+                        font-size: 3.2rem;
+                    }
+
+                    strong
+                    {
+                        font-size: 6.7rem;
+                        font-weight: 700;
+                        border-top: 4px solid $white;
+
+                        @include media-breakpoint-down(lg)
+                        {
+                            font-size: 3.7rem;
+                            width: fit-content;
+                        }
+
+                        @include media-breakpoint-down(md)
+                        {
+                            font-size: 2.7rem;
+                        }
+                    }
+
+                }
+            }
+
+            .text
+            {
+                p
+                {
+                    font-size: 2rem;
+                    font-weight: 500;
+                    width: 272px;
+
+                    @include media-breakpoint-down(lg)
+                    {
+                        width: 100%;
+                        margin: 0 0 20px;
+                    }
+
+                    @include media-breakpoint-down(md)
+                    {
+                        font-size: 1.8rem;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .main-content
+    {
+        background: $orange_2;
+        width: 60%;
+        padding: 120px 0 120px 120px;
+
+        @include media-breakpoint-down(xl)
+        {
+            padding: 50px 0 50px 50px;
+        }
+
+        @include media-breakpoint-down(lg)
+        {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .wrap-team
+        {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            width: 660px;
+            max-width: 100%;
+
+            @media (max-width: 1366px)
+            {
+                width: 520px;
+            }
+
+            .wrap-dev
+            {
+                width: fit-content;
+                position: relative;
+
+                .front-team
+                {
+                    position: relative;
+                    display: block;
+                    opacity: 1;
+                    width: 330px;
+                    height: 330px;
+
+                    @media (max-width: 1366px)
+                    {
+                        width: 260px;
+                        height: 260px;
+                    }
+
+                    .img-banner
+                    {
+                        img
+                        {
+                            max-width: 100%;
+
+                            @media (max-width: 1366px)
+                            {
+                                height: 100%;
+                            }
+
+                        }
+                    }
+
+                    .title-banner
+                    {
+                        width: 115px;
+                        position: absolute;
+                        bottom: 10px;
+                        left: 20px;
+
+                        h2
+                        {
+                            max-width: 100%;
+                            strong
+                            {
+                                font-size: 1.8rem;
+                                font-weight: 500;
+                                color: $black;
+                            }
+                        }
+                    }
+
+                }
+
+                .back-team
+                {
+                    display: none;
+                    opacity: 0;
+                    width: 330px;
+                    height: 330px;
+                    background: $orange_1;
+                    padding: 20px;
+
+                    @media (max-width: 1366px)
+                    {
+                        width: 260px;
+                        height: 260px;
+                    }
+
+                    .content
+                    {
+                        .title
+                        {
+                            h3
+                            {
+                                font-size: 1.4rem;
+                                font-weight: 600;
+                            }
+                        }
+                        .text
+                        {
+                            p
+                            {
+                                font-size: 1.2rem;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+                .ico-team
+                {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    z-index: $layer-1;
+                }
+            }
+
+
+        }
+
+    }
+}
