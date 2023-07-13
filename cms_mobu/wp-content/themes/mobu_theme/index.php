@@ -546,7 +546,7 @@ $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
     <div class="full-post-wrap">
 
         <div class="single-post-news">
-            <div class="backdrop-post-news"></div>
+            <span class="backdrop-post-news close-post"></span>
             <div class="wrap-single-post">
             </div>
         </div>

@@ -117,7 +117,7 @@ $.when($.ready).then(function () {
   /**
    * Single post News
    */
-  // Selecionar a div com a classe "wrap-single-post"
+
   const wrapSinglePost = document.querySelector(".wrap-single-post");
 
   // Criar um observador de mutação
@@ -138,6 +138,15 @@ $.when($.ready).then(function () {
         const nextId = document.querySelector(
           '.next-post > form > input[name="post_id"]'
         ).value;
+
+        const close = document.querySelectorAll(".close-post");
+
+        // Close
+        close.forEach((c) => {
+          c.addEventListener("click", () => {
+            singlePostNews.style.display = "none";
+          });
+        });
 
         // Prev
         prevNews.addEventListener("click", () => {
