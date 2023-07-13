@@ -6,9 +6,8 @@
  */
 
 $video_embed = get_field('post_video_embed');
-
-// share links
-// echo get_permalink($prev_post->ID);
+$next_post = get_next_post();
+$prev_post = get_previous_post();
 
 ?>
 
@@ -34,6 +33,7 @@ $video_embed = get_field('post_video_embed');
             </div>
         </div>
     </div>
+
     <div class="wrap-content-single-post">
         <div class="video-single-post">
             <?php echo $video_embed; ?>
@@ -47,12 +47,9 @@ $video_embed = get_field('post_video_embed');
             <?php _e(get_the_content(), 'mobu_theme'); ?>
         </div>
     </div>
+
     <div class="wrap-bottom-single-post">
         <div class="pagination-single-post">
-
-            <?php
-            $next_post = get_next_post();
-            ?>
             <div class="next-post <?php if (empty($next_post)) : echo "d-none";
                                     endif; ?>">
                 <svg viewBox="0 0 16 16" height="48" width="48" focusable="false" role="img" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
@@ -63,9 +60,6 @@ $video_embed = get_field('post_video_embed');
                 </form>
             </div>
 
-            <?php
-            $prev_post = get_previous_post();
-            ?>
             <div class="previous-post <?php if (empty($prev_post)) : echo "d-none";
                                         endif; ?>">
                 <svg viewBox="0 0 16 16" height="48" width="48" focusable="false" role="img" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
