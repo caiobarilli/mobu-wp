@@ -193,7 +193,7 @@ if (isset($_GET['p'])) {
         </div>
     </section>
 
-    <section id="curso" class="course"></section>
+    <section id="cursos" class="course"></section>
 
     <section id="pra_quem" class="cta">
         <?php if (wp_is_mobile()) : ?>
@@ -552,6 +552,26 @@ if (isset($_GET['p'])) {
         </div>
 
         <section id="news" class="news">
+            <?php if (wp_is_mobile()) : ?>
+                <div class="main-content">
+                    <div class="wrap-content">
+                        <div class="title">
+                            <h2>
+                                <strong>
+                                    <?php _e('04', 'mobu_theme'); ?>
+                                </strong>
+                                <?php _e($title_news, 'mobu_theme'); ?>
+                            </h2>
+                        </div>
+                        <div class="text">
+                            <p>
+                                <?php _e($subtitle_news, 'mobu_theme'); ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <div class="left-content">
                 <div class="wrap-content">
 
@@ -623,23 +643,25 @@ if (isset($_GET['p'])) {
                 </div>
             </div>
 
-            <div class="main-content">
-                <div class="wrap-content">
-                    <div class="title">
-                        <h2>
-                            <strong>
-                                <?php _e('04', 'mobu_theme'); ?>
-                            </strong>
-                            <?php _e($title_news, 'mobu_theme'); ?>
-                        </h2>
-                    </div>
-                    <div class="text">
-                        <p>
-                            <?php _e($subtitle_news, 'mobu_theme'); ?>
-                        </p>
+            <?php if (!wp_is_mobile()) : ?>
+                <div class="main-content">
+                    <div class="wrap-content">
+                        <div class="title">
+                            <h2>
+                                <strong>
+                                    <?php _e('04', 'mobu_theme'); ?>
+                                </strong>
+                                <?php _e($title_news, 'mobu_theme'); ?>
+                            </h2>
+                        </div>
+                        <div class="text">
+                            <p>
+                                <?php _e($subtitle_news, 'mobu_theme'); ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </section>
 
         <section id="contato" class="contact">

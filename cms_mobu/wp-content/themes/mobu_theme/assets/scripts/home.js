@@ -266,8 +266,6 @@ $.when($.ready).then(function () {
       singlePostNews = document.querySelector(".single-post-news"),
       singlePost = document.querySelector(".wrap-single-post");
 
-    console.log(postId);
-
     $.ajax({
       url: wp.ajax_url,
       type: "POST",
