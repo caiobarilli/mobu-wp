@@ -41,3 +41,42 @@ $wp_customize->add_control(
         'type'                => 'text'
     )
 );
+
+// Field 2 - Text Box
+$wp_customize->add_setting(
+    'set_text_course',
+    array(
+        'type'      => 'theme_mod',
+        'default'   => '',
+    )
+);
+$wp_customize->add_control(
+    'set_text_course',
+    array(
+        'label'                => __('Texto', 'mobu_theme'),
+        'description'        => __('Digite o texto da sessão', 'mobu_theme'),
+        'section'            => 'sec_header_course',
+        'type'                => 'textarea'
+    )
+);
+
+// Field 2 - Text Box
+$wp_customize->add_setting(
+    'set_img_course',
+    array(
+        'type'      => 'theme_mod',
+        'default'   => '',
+    )
+);
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'set_img_course',
+        array(
+            'label'         => __('Imagem do rodapé', 'mobu_theme'),
+            'description'   => __('Faça upload de uma imagem.', 'mobu_theme'),
+            'section'       => 'sec_header_course',
+        )
+    )
+
+);

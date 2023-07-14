@@ -139,7 +139,7 @@ $wp_customize->add_control(
         $wp_customize,
         'set_capa_cta',
         array(
-            'label'         => __('Capa do video', 'nomedotema'),
+            'label'         => __('Capa do video', 'mobu_theme'),
             'description'   => __('Faça upload de uma imagem.', 'mobu_theme'),
             'section'       => 'sec_esq_cta',
         )
