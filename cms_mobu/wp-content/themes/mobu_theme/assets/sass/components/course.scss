@@ -101,6 +101,11 @@
             bottom: 0;
             left: 0;
 
+            @include media-breakpoint-down(md)
+            {
+                display: none;
+            }
+
             img
             {
                 max-width: 100%;
@@ -114,6 +119,16 @@
         width: 60%;
         padding: 110px 0 110px 110px;
 
+        @include media-breakpoint-down(xl)
+        {
+            padding: 20px 0 20px 20px;
+        }
+
+        @include media-breakpoint-down(lg)
+        {
+            width: 100%;
+        }
+
         .course-slider
         {
             .swiper-wrapper
@@ -126,6 +141,11 @@
                     {
                         width: 660px;
                         max-width: 100%;
+
+                        @include media-breakpoint-down(xl)
+                        {
+                            width: 95%;
+                        }
 
                         img
                         {
@@ -146,6 +166,7 @@
 
                         .wrap-post-left-square
                         {
+                            width: 50%;
                             .wrap-post
                             {
                                 height: 50%;
@@ -157,6 +178,7 @@
                             display: flex;
                             flex-direction: column;
                             position: relative;
+                            height: 100%;
 
                             .title-category
                             {
@@ -166,7 +188,8 @@
                                 align-content: center;
                                 justify-content: center;
                                 background: $yellow_6;
-                                height: 110px;
+                                min-height: 110px;
+                                padding: 10px;
 
                                 h2
                                 {
@@ -265,6 +288,11 @@
             width: 660px;
             max-width: 100%;
 
+            @include media-breakpoint-down(xl)
+            {
+                width: 95%;
+            }
+
             .swiper-pagination
             {
                 display: flex;
@@ -281,7 +309,7 @@
 
                 @include media-breakpoint-down(md)
                 {
-                    top: -35px;
+                    top: -38px;
                 }
             }
 

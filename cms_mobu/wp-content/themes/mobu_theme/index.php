@@ -223,7 +223,6 @@ if (isset($_GET['p'])) {
         </div>
         <div class="main-content">
             <div class="wrap-content">
-
                 <div class="swiper course-slider">
                     <div class="swiper-wrapper">
                         <?php
@@ -406,7 +405,6 @@ if (isset($_GET['p'])) {
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
