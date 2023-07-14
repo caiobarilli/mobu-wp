@@ -87,7 +87,7 @@ $prev_post = get_previous_post();
         <div class="social-share">
             <div class="social-share-title">
                 <h3>
-                    <?php _e('Share this post', 'mobu_theme'); ?>
+                    <?php _e('COMPARTILHAR', 'mobu_theme'); ?>
                 </h3>
             </div>
 

@@ -401,6 +401,13 @@
                         flex-direction: column;
                         width: 50%;
 
+                        h3
+                        {
+                            font-size: 2.102rem;
+                            font-weight: 300;
+                            margin-bottom: 15px;
+                        }
+
                         .social-share-icons
                         {
                             display: flex;
@@ -420,7 +427,7 @@
                                 width: 40px;
                                 height: 40px;
                                 padding: 10px;
-                                margin-right: 5px;
+                                margin-right: 10px;
 
                                 svg
                                 {

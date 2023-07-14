@@ -13340,6 +13340,11 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   flex-direction: column;
   width: 50%;
 }
+.full-post-wrap .single-post-news .wrap-single-post .single-post .wrap-bottom-single-post .social-share h3, .full-post-wrap .single-post-news .wrap-single-post .single-post .wrap-bottom-single-post .social-share .h3 {
+  font-size: 2.102rem;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
 .full-post-wrap .single-post-news .wrap-single-post .single-post .wrap-bottom-single-post .social-share .social-share-icons {
   display: flex;
   flex-wrap: wrap;
@@ -13356,7 +13361,7 @@ header .header-slider .wrap-pagination .swiper-pagination-bullet-active {
   width: 40px;
   height: 40px;
   padding: 10px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .full-post-wrap .single-post-news .wrap-single-post .single-post .wrap-bottom-single-post .social-share .social-share-icons a svg {
   fill: #697ac1;

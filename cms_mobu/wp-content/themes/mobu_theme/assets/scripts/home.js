@@ -6,6 +6,19 @@ import { Navigation, Pagination } from "swiper/modules";
  * Smooth scroll (a.scroll-down)
  */
 $.when($.ready).then(function () {
+  function removeHashFromURL() {
+    if (window.location.hash) {
+      history.replaceState(
+        {},
+        document.title,
+        window.location.href.split("#")[0]
+      );
+    }
+  }
+
+  // Ouvinte de evento para detectar a alteração da URL
+  window.addEventListener("hashchange", removeHashFromURL);
+
   $("a").click(function (event) {
     if (!$(this).hasClass("smooth-scroll")) {
       event.preventDefault();
@@ -20,8 +33,6 @@ $.when($.ready).then(function () {
         speed: 600,
         autoCoefficient: 2,
         preventDefault: true,
-        beforeScroll: function () {},
-        afterScroll: function () {},
       });
     }
   });
