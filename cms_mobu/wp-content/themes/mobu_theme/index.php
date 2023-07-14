@@ -77,10 +77,10 @@ $customizer_repeater_social = get_theme_mod('customizer_repeater_social', json_e
 $customizer_repeater_social_decoded = json_decode($customizer_repeater_social);
 
 // Share Link
-// if (isset($_GET['p'])) {
-//     $param_p = $_GET['p'];
-//     echo 'Valor do parâmetro "p": ' . $param_p;
-// }
+if (isset($_GET['p'])) {
+    $param_p = $_GET['p'];
+    echo '<form id="share-post"> <input type="hidden" name="post_id" value="' . $param_p . '"> </form>';
+}
 
 ?>
 
