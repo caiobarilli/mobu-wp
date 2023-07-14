@@ -35,6 +35,6 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body>
 
 	<?php get_template_part('navbar'); ?>

@@ -115,7 +115,6 @@ function mobu_theme_menu()
  */
 function header_scripts()
 {
-
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
         wp_dequeue_script('jquery');
         wp_deregister_script('jquery');
@@ -127,7 +126,7 @@ function header_scripts()
 
         wp_register_script('mobu_home_scripts', get_template_directory_uri() . '/dist/home.js', array(), THEME_VERSION); // Home scripts
         wp_enqueue_script('mobu_home_scripts'); // Enqueue it!
-
+        wp_localize_script('mobu_home_scripts', 'wp', ['ajax_url' => admin_url('admin-ajax.php')]); // Disponibiliza as informações no objeto JavaScript
     }
 }
 
@@ -141,28 +140,57 @@ function public_assets()
 }
 
 /**
+ *
+ * Função de retorno para atualizar o slider de receitas do blog. *
+ * Esta função é chamada por meio de uma solicitação POST e atualiza o slider com base no termId fornecido.
+ *
+ * @return void
+ */
+function show_post_callback()
+{
+    if (isset($_POST['postId'])) {
+        $post_id = $_POST['postId'];
+
+        $args = array(
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'p'              => $post_id,
+            'posts_per_page' => 1,
+        );
+
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+                get_template_part('template-parts/content', 'post');
+            endwhile;
+            wp_reset_postdata();
+        endif;
+    }
+
+    wp_die();
+}
+
+/**
  * Custom Excerpt
  *
  * Esta função retorna um trecho personalizado do conteúdo do post.
  *
- * @param int $limit O limite máximo de palavras para o trecho.
- * @return void
+ * @param int    $count O número máximo de caracteres a serem retornados.
+ * @param string $text  O texto a ser limitado.
+ * @return string O trecho de texto limitado.
  */
-function post_excerpt($limit)
+function custom_excerpt($count, $text)
 {
-    $my_excerpt = apply_filters('the_excerpt', get_the_excerpt());
-    $excerpt = explode(' ', $my_excerpt, $limit);
-
-    if (count($excerpt) >= $limit) {
-        array_pop($excerpt);
-        $excerpt = implode(" ", $excerpt) . '...';
+    $excerpt = strip_tags($text);
+    $conttxt = strlen($excerpt);
+    if ($conttxt >= $count) {
+        $reduz = mb_substr($excerpt, 0, $count, 'UTF-8');
+        $excerpt = $reduz . '...';
     } else {
-        $excerpt = implode(" ", $excerpt);
+        $excerpt = $excerpt;
     }
-
-    $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
-
-    echo $excerpt;
+    return $excerpt;
 }
 
 /**
@@ -317,6 +345,9 @@ add_action('login_head', 'change_logo_login_head'); // Change admin logo
 add_action('wp_enqueue_scripts', 'public_assets', 99); // Add Theme Stylesheet
 add_action('wp_enqueue_scripts', 'remove_global_styles', 100); // Remove Global styles from WordPress
 add_action('customize_register', 'customizer_removes', 50); // Remove static_front_page from Wp Customizer
+
+add_action('wp_ajax_show_post', 'show_post_callback');
+add_action('wp_ajax_nopriv_show_post', 'show_post_callback');
 
 // Remove Actions
 remove_action('wp_head', 'print_emoji_detection_script', 7); // Remove wp emoji
