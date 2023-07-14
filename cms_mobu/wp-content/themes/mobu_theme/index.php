@@ -24,6 +24,11 @@ $title_services_about = get_theme_mod('set_title_services_about');
 $customizer_repeater_services = get_theme_mod('customizer_repeater_services', json_encode(array()));
 $customizer_repeater_services_decoded = json_decode($customizer_repeater_services);
 
+// Curso
+$title_course = get_theme_mod('set_title_course');
+$text_course = get_theme_mod('set_text_course');
+$img_course = get_theme_mod('set_img_course');
+
 // CTA
 $text_left_cta = get_theme_mod('set_txt_left_cta');
 $capa_cta = get_theme_mod('set_capa_cta');
@@ -193,7 +198,218 @@ if (isset($_GET['p'])) {
         </div>
     </section>
 
-    <section id="cursos" class="course"></section>
+    <section id="cursos" class="course">
+        <div class="left-content">
+            <div class="wrap-content">
+                <div class="title">
+                    <h2>
+                        <strong>
+                            <?php _e('02', 'mobu_theme'); ?>
+                        </strong>
+                        <?php _e($title_course, 'mobu_theme'); ?>
+                    </h2>
+                </div>
+
+                <div class="text">
+                    <p>
+                        <?php _e($text_course, 'mobu_theme'); ?>
+                    </p>
+                </div>
+
+            </div>
+            <div class="image-left-content">
+                <img src="<?php echo $img_course; ?>" alt="imagem ilustrativa" />
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="wrap-content">
+
+                <div class="swiper course-slider">
+                    <div class="swiper-wrapper">
+                        <?php
+
+                        $count;
+
+                        $categories = get_terms(array(
+                            'taxonomy' => 'modules',
+                            'hide_empty' => false,
+                        ));
+
+                        foreach ($categories as $category) {
+
+                            $count = 0;
+
+                            $args = array(
+                                'post_type' => 'discipline',
+                                'order' => 'ASC',
+                                'posts_per_page' => 5,
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'modules',
+                                        'field' => 'term_id',
+                                        'terms' => $category->term_id,
+                                    ),
+                                ),
+                            );
+
+                            $wp_query = new WP_Query($args);
+
+                            if ($wp_query->have_posts()) :
+
+                                echo '<div class="swiper-slide">';
+                                echo '<div class="wrap-slider-cursos">';
+
+                                while ($wp_query->have_posts()) : $wp_query->the_post();
+
+                                    $title = get_the_title();
+                                    $title_discipline = get_field('title_discipline');
+                                    $subtitle_discipline = get_field('subtitle_discipline');
+                                    $text_discipline = get_field('text_discipline');
+
+                                    $count++;
+
+                        ?>
+
+                                    <?php
+
+                                    if ($count == 1) :
+                                        echo '<div class="wrap-post-top">';
+                                    endif;
+
+                                    if ($count == 2) :
+                                        echo '<div class="wrap-posts-middle">';
+                                    endif;
+
+                                    if ($count == 2) :
+                                        echo '<div class="wrap-post-left-square">';
+                                    endif;
+
+                                    if ($count == 4) :
+                                        echo '<div class="wrap-post-right-retangular">';
+                                    endif;
+
+                                    if ($count == 5) :
+                                        echo '<div class="wrap-post-bottom">';
+                                    endif;
+
+                                    ?>
+
+                                    <div class="wrap-post">
+                                        <?php
+
+                                        if ($count == 1) :
+
+                                        ?>
+
+                                            <div class="title-category">
+                                                <h2>
+                                                    <?php
+                                                    echo $category->name;
+                                                    ?>
+                                                </h2>
+                                            </div>
+
+                                        <?php
+
+                                        endif;
+
+                                        ?>
+
+                                        <div class="front-course">
+                                            <?php if (has_post_thumbnail() && $count == 1) : ?>
+                                                <?php the_post_thumbnail('slide-course-image-large', array('class' => 'slide-course-image-large')); ?>
+                                            <?php elseif (has_post_thumbnail() && $count == 2) : ?>
+                                                <?php the_post_thumbnail('slide-course-image-square', array('class' => 'slide-course-image-square')); ?>
+                                            <?php elseif (has_post_thumbnail() && $count == 3) : ?>
+                                                <?php the_post_thumbnail('slide-course-image-square', array('class' => 'slide-course-image-square')); ?>
+                                            <?php elseif (has_post_thumbnail() && $count == 4) : ?>
+                                                <?php the_post_thumbnail('slide-course-image-retangular', array('class' => 'slide-course-image-retangular')); ?>
+                                            <?php elseif (has_post_thumbnail() && $count == 5) : ?>
+                                                <?php the_post_thumbnail('slide-course-image-bottom', array('class' => 'slide-course-image-bottom')); ?>
+                                            <?php else : ?>
+                                                <?php if ($count == 1) : ?>
+                                                    <img class="slide-course-image-large" src="https://dummyimage.com/662x550" alt="..." />
+                                                <?php endif; ?>
+                                                <?php if ($count == 2) : ?>
+                                                    <img class="slide-course-image-large" src="https://dummyimage.com/330x330" alt="..." />
+                                                <?php endif; ?>
+                                                <?php if ($count == 3) : ?>
+                                                    <img class="slide-course-image-large" src="https://dummyimage.com/330x330" alt="..." />
+                                                <?php endif; ?>
+                                                <?php if ($count == 4) : ?>
+                                                    <img class="slide-course-image-large" src="https://dummyimage.com/330x655" alt="..." />
+                                                <?php endif; ?>
+                                                <?php if ($count == 5) : ?>
+                                                    <img class="slide-course-image-large" src="https://dummyimage.com/660x330" alt="..." />
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                        <div class="back-course">
+                                            <div class="title">
+                                                <h2>
+                                                    <?php _e($title, 'mobu_theme') ?>
+                                                </h2>
+                                                <h3>
+                                                    <strong>
+                                                        <?php _e($title_discipline, 'mobu_theme') ?>
+                                                    </strong>
+                                                    <?php _e($subtitle_discipline, 'mobu_theme') ?>
+                                                </h3>
+                                            </div>
+                                            <div class="text">
+                                                <p>
+                                                    <?php _e($text_discipline, 'mobu_theme') ?>
+                                                </p>
+                                            </div>
+                                            <img class="ico-course" src="data:image/png;base64,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UmVhZHlxyWU8AAADI2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzkzQjZDNjQyMjYwMTFFRTk4RTVCN0Y1NkM4NzdCMzIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MzkzQjZDNjUyMjYwMTFFRTk4RTVCN0Y1NkM4NzdCMzIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozOTNCNkM2MjIyNjAxMUVFOThFNUI3RjU2Qzg3N0IzMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozOTNCNkM2MzIyNjAxMUVFOThFNUI3RjU2Qzg3N0IzMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ps6JC2gAAA6uSURBVHjafFzLjixHEc3Irpk7T9sIvLBAPIQEEhKwY+0VH8A38Ht8BVtAQvICBBuErmQhLAP3ju88ujOofEWeePSMrsY9XVVZ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" alt="icone ilustrativo">
+                                        </div>
+
+                                    </div>
+
+                                    <?php
+
+                                    if ($count == 1) :
+                                        echo '</div>';
+                                    endif;
+
+                                    if ($count == 3) :
+                                        echo '</div>';
+                                    endif;
+
+                                    if ($count == 4) :
+                                        echo '</div>';
+                                    endif;
+
+                                    if ($count == 4) :
+                                        echo '</div>';
+                                    endif;
+
+                                    if ($count == 5) :
+                                        echo '</div>';
+                                    endif;
+
+                                    ?>
+                        <?php
+
+                                endwhile;
+
+                                echo '</div></div>';
+
+                                wp_reset_postdata();
+                            endif;
+                        }
+                        ?>
+                    </div>
+                    <div class="wrap-pagination">
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section id="pra_quem" class="cta">
         <?php if (wp_is_mobile()) : ?>
@@ -280,7 +496,7 @@ if (isset($_GET['p'])) {
                 <div class="title">
                     <h2>
                         <strong>
-                            <?php _e('03', 'mobu_theme'); ?>
+                            <?php _e('04', 'mobu_theme'); ?>
                         </strong>
                         <?php _e($title_team, 'mobu_theme'); ?>
                     </h2>

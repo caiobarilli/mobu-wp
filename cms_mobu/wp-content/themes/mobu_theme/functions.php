@@ -43,6 +43,11 @@ if (function_exists('add_theme_support')) {
     add_image_size('post-banner-slider', 1920, 1040, true);
     add_image_size('image-team', 330, 330, true);
 
+    add_image_size('slide-course-image-large', 662, 550, true);
+    add_image_size('slide-course-image-square', 330, 330, true);
+    add_image_size('slide-course-image-retangular', 330, 651, true);
+    add_image_size('slide-course-image-bottom', 660, 330, true);
+
     // Localization Support
     // load_theme_textdomain('mobu_theme', get_template_directory() . '/languages');
 }

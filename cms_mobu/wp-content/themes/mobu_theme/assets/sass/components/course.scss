@@ -1,0 +1,319 @@
+
+.course
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .left-content
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        background: $black;
+        width: 40%;
+        padding: 100px 75px 300px 0;
+        position: relative;
+
+        @include media-breakpoint-down(lg)
+        {
+            width: 100%;
+            padding: 10px;
+            justify-content: flex-start;
+        }
+
+        .wrap-content
+        {
+            width: fit-content;
+            position: relative;
+
+            .title
+            {
+                h2
+                {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 9.2rem;
+                    font-weight: 300;
+                    width: 80px;
+
+                    @include media-breakpoint-down(lg)
+                    {
+                        font-size: 6.2rem;
+                        width: 100%;
+                        margin: 20px 0;
+                    }
+
+                    @include media-breakpoint-down(md)
+                    {
+                        font-size: 3.2rem;
+                    }
+
+                    strong
+                    {
+                        font-size: 6.7rem;
+                        font-weight: 700;
+                        border-top: 4px solid $white;
+
+                        @include media-breakpoint-down(lg)
+                        {
+                            font-size: 3.7rem;
+                            width: fit-content;
+                        }
+
+                        @include media-breakpoint-down(md)
+                        {
+                            font-size: 2.7rem;
+                        }
+                    }
+
+                }
+            }
+
+            .text
+            {
+                p
+                {
+                    font-size: 2rem;
+                    font-weight: 500;
+                    width: 272px;
+
+                    @include media-breakpoint-down(lg)
+                    {
+                        width: 100%;
+                        margin: 0 0 20px;
+                    }
+
+                    @include media-breakpoint-down(md)
+                    {
+                        font-size: 1.8rem;
+                    }
+
+                }
+            }
+
+        }
+
+        .image-left-content
+        {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            img
+            {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .main-content
+    {
+        background: $dark;
+        width: 60%;
+        padding: 110px 0 110px 110px;
+
+        .course-slider
+        {
+            .swiper-wrapper
+            {
+                padding-bottom: 40px;
+
+                .swiper-slide
+                {
+                    .wrap-slider-cursos
+                    {
+                        width: 660px;
+                        max-width: 100%;
+
+                        img
+                        {
+                            height: 100%;
+                            width: 100%;
+                        }
+
+                        .wrap-posts-middle
+                        {
+                            display: flex;
+                            flex-direction: row;
+                        }
+
+                        .wrap-post-right-retangular
+                        {
+                            width: 50%;
+                        }
+
+                        .wrap-post-left-square
+                        {
+                            .wrap-post
+                            {
+                                height: 50%;
+                            }
+                        }
+
+                        .wrap-post
+                        {
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
+
+                            .title-category
+                            {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                align-content: center;
+                                justify-content: center;
+                                background: $yellow_6;
+                                height: 110px;
+
+                                h2
+                                {
+                                    font-size: 2.8rem;
+                                    font-weight: 700;
+                                }
+                            }
+
+                            .front-course
+                            {
+                                display: block;
+                                opacity: 1;
+                                height: 100%;
+                                img
+                                {
+                                    max-width: 100%;
+                                }
+
+                            }
+
+                            .back-course
+                            {
+                                display: none;
+                                opacity: 0;
+
+                                background: $blue_1;
+
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+
+                                height: 100%;
+                                width: 100%;
+                                padding: 10px;
+
+                                .title
+                                {
+                                    h2
+                                    {
+                                        font-size: 1.75rem;
+                                        font-weight: 300;
+                                        color: $white;
+                                    }
+
+                                    h3
+                                    {
+                                        font-size: 1.75rem;
+                                        font-weight: 300;
+                                        color: $white;
+                                        margin: 15px 0;
+
+
+                                        strong
+                                        {
+                                            display: block;
+                                            font-size: 1.75rem;
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+
+                                .text
+                                {
+                                    p
+                                    {
+                                        font-size: 1.2rem;
+                                        font-weight: 500;
+                                        color: $white;
+                                    }
+                                }
+
+                                .ico-course
+                                {
+                                    opacity: 0;
+                                    width: 80px;
+                                    height: auto;
+                                    position: absolute;
+                                    right: 10px;
+                                    bottom: 10px;
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .wrap-pagination
+        {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            width: 660px;
+            max-width: 100%;
+
+            .swiper-pagination
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                background: rgba(0, 0, 0, 0.7);
+                width: fit-content !important;
+                padding: 10px;
+                top: -40px;
+
+                @include media-breakpoint-down(md)
+                {
+                    top: -35px;
+                }
+            }
+
+            .swiper-pagination-bullet
+            {
+                width: 15px;
+                height: 15px;
+                background: $gray_1;
+                border: 0;
+
+                @include media-breakpoint-down(md)
+                {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+
+            .swiper-pagination-bullet-active
+            {
+                width: 22px;
+                height: 22px;
+
+                @include media-breakpoint-down(md)
+                {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                background: transparent;
+                border: 3px solid $white;
+            }
+        }
+
+    }
+}

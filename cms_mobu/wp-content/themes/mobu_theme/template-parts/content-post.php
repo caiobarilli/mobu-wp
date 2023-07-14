@@ -23,7 +23,7 @@ $prev_post = get_previous_post();
         <div class="post-infos">
             <div class="date">
                 <small>
-                    <?php echo date('F j, Y', strtotime($date)); ?>
+                    <?php echo date('F j, Y', strtotime(get_the_date())); ?>
                 </small>
             </div>
             <div class="category">

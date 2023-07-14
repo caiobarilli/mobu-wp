@@ -183,8 +183,8 @@ $.when($.ready).then(function () {
           const close = document.querySelectorAll(".close-post");
 
           // Close
-          close.forEach((c) => {
-            c.addEventListener("click", () => {
+          close.forEach((x) => {
+            x.addEventListener("click", () => {
               singlePostNews.style.display = "none";
             });
           });
@@ -285,6 +285,42 @@ $.when($.ready).then(function () {
           }, 400);
         }
       },
+    });
+  }
+
+  /**
+   * Course slider
+   */
+  if ($(".course-slider").length) {
+    const swiperHeader = new Swiper(".course-slider", {
+      modules: [Navigation, Pagination],
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+    const wrapCursos = document.querySelectorAll(".wrap-post");
+
+    wrapCursos.forEach((curso) => {
+      const frontTeam = curso.querySelector(".front-course");
+      const backTeam = curso.querySelector(".back-course");
+      const icon = curso.querySelector(".ico-course");
+
+      curso.addEventListener("mouseover", () => {
+        icon.style.opacity = "1";
+        frontTeam.style.opacity = "0";
+        backTeam.style.opacity = "1";
+        backTeam.style.display = "block";
+      });
+
+      curso.addEventListener("mouseout", () => {
+        icon.style.opacity = "0";
+        backTeam.style.opacity = "0";
+        backTeam.style.display = "none";
+        frontTeam.style.opacity = "1";
+      });
     });
   }
 });
