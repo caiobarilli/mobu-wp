@@ -16,11 +16,18 @@ $.when($.ready).then(function () {
       mainNav.classList.add("menu-fixed");
     }
 
-    function mainNavScroll() {
-      const scrollTop = window.scrollY,
-        currentScrollTop = window.scrollY;
+    window.addEventListener("scroll", mainNavScroll);
 
-      if (currentScrollTop < previousScrollTop) {
+    function mainNavScroll() {
+      const scrollTop = window.scrollY;
+
+      if (scrollTop >= 160) {
+        mainNav.classList.add("menu-fixed");
+      } else {
+        mainNav.classList.remove("menu-fixed");
+      }
+
+      if (scrollTop < previousScrollTop) {
         if (scrollTop <= 260) {
           mainNav.classList.add("scroll-up-navigation");
         }
@@ -29,16 +36,8 @@ $.when($.ready).then(function () {
         }
       }
 
-      previousScrollTop = currentScrollTop;
-
-      if (scrollTop >= 160) {
-        mainNav.classList.add("menu-fixed");
-      } else {
-        mainNav.classList.remove("menu-fixed");
-      }
+      previousScrollTop = scrollTop;
     }
-
-    window.addEventListener("scroll", mainNavScroll);
   }
 });
 
@@ -63,7 +62,7 @@ $.when($.ready).then(function () {
       event.preventDefault();
     } else {
       $(this).smoothScroll({
-        offset: -120,
+        offset: 210,
         direction: "top",
         scrollTarget: null,
         autoFocus: false,

@@ -44,9 +44,11 @@ $prev_post = get_previous_post();
 
     <div class="wrap-content-single-post">
 
-        <div class="video-single-post">
-            <?php echo $video_embed; ?>
-        </div>
+        <?php if ($video_embed) : ?>
+            <div class="video-single-post">
+                <?php echo $video_embed; ?>
+            </div>
+        <?php endif; ?>
 
         <div class="title-single-post">
             <h2>
