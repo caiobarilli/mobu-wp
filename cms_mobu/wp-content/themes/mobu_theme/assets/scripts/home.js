@@ -6,16 +6,27 @@ import { Navigation, Pagination } from "swiper/modules";
  * Smooth scroll (a.scroll-down)
  */
 $.when($.ready).then(function () {
-  const menu = document.getElementById("main-nav"),
-    menuOffsetTop = menu.offsetTop + 20;
-
+  const mainNav = document.getElementById("main-nav");
+  let previousScrollTop = 0;
   function mainNavScroll() {
-    const scrollTop = window.scrollY;
+    const scrollTop = window.scrollY,
+      currentScrollTop = window.scrollY;
 
-    if (scrollTop >= menuOffsetTop) {
-      menu.classList.add("menu-fixed");
+    if (currentScrollTop < previousScrollTop) {
+      if (scrollTop <= 260) {
+        mainNav.classList.add("scroll-up-navigation");
+      }
+      if (scrollTop <= 180) {
+        mainNav.classList.remove("scroll-up-navigation");
+      }
+    }
+
+    previousScrollTop = currentScrollTop;
+
+    if (scrollTop >= 160) {
+      mainNav.classList.add("menu-fixed");
     } else {
-      menu.classList.remove("menu-fixed");
+      mainNav.classList.remove("menu-fixed");
     }
   }
 
@@ -31,7 +42,6 @@ $.when($.ready).then(function () {
     }
   }
 
-  // Ouvinte de evento para detectar a alteração da URL
   window.addEventListener("hashchange", removeHashFromURL);
 
   $("a").click(function (event) {

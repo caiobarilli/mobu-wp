@@ -5,6 +5,8 @@
     background-repeat: no-repeat;
     padding: 25px 0 15px;
     width: 100%;
+    position: absolute;
+    z-index: 3;
 
     .wrap-content
     {
@@ -138,7 +140,6 @@
         }
     }
 
-
     @include media-breakpoint-down(md)
     {
         #menu-mobile
@@ -176,6 +177,29 @@
 
 .menu-fixed
 {
-    position: fixed;
-    z-index: 9;
+    position: fixed !important;
+    animation: moveDownNavigation 1s linear forwards;
+}
+
+@keyframes moveDownNavigation {
+    0% {
+      transform: translate(0, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.scroll-up-navigation
+{
+    animation: moveUpNavigation 200ms linear forwards;
+}
+
+@keyframes moveUpNavigation {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, -100px);
+    }
 }
