@@ -552,7 +552,7 @@ if (isset($_GET['p'])) {
                                     </div>
                                     <div class="text">
                                         <p>
-                                            <?php _e($text_team, 'mobu_theme') ?>
+                                            <?php _e(custom_excerpt(500, $text_team), 'mobu_theme') ?>
                                         </p>
                                     </div>
                                 </div>
