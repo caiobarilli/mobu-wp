@@ -754,21 +754,38 @@ if (isset($_GET['p'])) {
                 <div class="col-md-6">
                     <div class="wrap-clients">
                         <?php
+                        $count = 0;
                         if (count($customizer_repeater_clients_decoded) >= 2) :
                             foreach ($customizer_repeater_clients_decoded as $repeater_item) :
                         ?>
-                                <div class="image">
-                                    <img src="<?php echo $repeater_item->image_url; ?>" alt="Imagem ilustrativa" />
-                                </div>
-                        <?php
+
+                                <?php if ($count <= 1) { ?>
+                                    <div class="image featured-img">
+                                    <?php } else { ?>
+                                        <div class="image">
+                                        <?php } ?>
+
+                                        <?php if ($repeater_item->link) : ?>
+                                            <a href="<?php echo esc_url($repeater_item->link); ?>">
+                                            <?php endif ?>
+
+                                            <img src="<?php echo $repeater_item->image_url; ?>" alt="Imagem ilustrativa" />
+
+                                            <?php if ($count <= 1) : ?>
+                                            </a>
+                                        <?php endif ?>
+                                        </div>
+                                <?php
+                                $count++;
                             endforeach;
                         endif;
-                        ?>
-                    </div>
-                </div>
+                                ?>
 
+                                    </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
     </section>
 
     <div class="full-post-wrap">

@@ -159,6 +159,19 @@
                 max-width: 100%;
             }
         }
+
+        .featured-img
+        {
+            width: 100%;
+            max-width: 100%;
+
+            img
+            {
+                display: block;
+                width: fit-content;
+                margin: 0 auto 20px;
+            }
+        }
     }
 
 }
