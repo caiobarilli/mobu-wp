@@ -108,22 +108,36 @@ if (isset($_GET['p'])) {
             ?>
 
                     <div class="swiper-slide">
-                        <div class="wrap_banner">
-                            <div class="img_banner">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('post-banner-slider', array('class' => 'post-banner-slider')); ?>
-                                <?php else : ?>
-                                    <img class="post-banner-slider" src="https://dummyimage.com/1920x1040" alt="..." />
-                                <?php endif; ?>
-                            </div>
-                            <div class="title_banner">
-                                <h1>
-                                    <strong>
-                                        <?php _e(get_the_title(), 'mobu_theme') ?>
-                                    </strong>
-                                </h1>
-                            </div>
-                        </div>
+                        <?php if (get_field('slider_link_url')) : ?>
+
+                            <a href="<?php echo esc_url(get_field('slider_link_url')); ?>" class="wrap_banner">
+                            <?php endif; ?>
+                            <?php
+
+                            if (!get_field('slider_link_url')) :
+                            ?>
+
+                                <a class="wrap_banner">
+                                <?php
+                            endif;
+
+                                ?>
+
+                                <div class="img_banner">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('post-banner-slider', array('class' => 'post-banner-slider')); ?>
+                                    <?php else : ?>
+                                        <img class="post-banner-slider" src="https://dummyimage.com/1920x1040" alt="..." />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="title_banner">
+                                    <h1>
+                                        <strong>
+                                            <?php _e(get_the_title(), 'mobu_theme') ?>
+                                        </strong>
+                                    </h1>
+                                </div>
+                                </a>
                     </div>
 
             <?php
@@ -478,7 +492,7 @@ if (isset($_GET['p'])) {
                             <?php _e($text_cta, 'mobu_theme'); ?>
                         </p>
                         <div class="btn-cta">
-                            <a href=" <?php echo $link_cta; ?>">
+                            <a class="smooth-scroll" href="<?php echo $link_cta; ?>">
                                 <?php _e($txt_btn_cta, 'mobu_theme'); ?>
                             </a>
                         </div>

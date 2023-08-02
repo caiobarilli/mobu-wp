@@ -3,35 +3,49 @@ import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 
 /**
- * Smooth scroll (a.scroll-down)
+ * Main nav (animations)
  */
 $.when($.ready).then(function () {
   const mainNav = document.getElementById("main-nav");
-  let previousScrollTop = 0;
-  function mainNavScroll() {
-    const scrollTop = window.scrollY,
-      currentScrollTop = window.scrollY;
 
-    if (currentScrollTop < previousScrollTop) {
-      if (scrollTop <= 260) {
-        mainNav.classList.add("scroll-up-navigation");
-      }
-      if (scrollTop <= 180) {
-        mainNav.classList.remove("scroll-up-navigation");
-      }
-    }
+  if ($(mainNav).length) {
+    let previousScrollTop = 0,
+      isReady = true;
 
-    previousScrollTop = currentScrollTop;
-
-    if (scrollTop >= 160) {
+    if (window.scrollY >= 160 && isReady) {
       mainNav.classList.add("menu-fixed");
-    } else {
-      mainNav.classList.remove("menu-fixed");
     }
+
+    function mainNavScroll() {
+      const scrollTop = window.scrollY,
+        currentScrollTop = window.scrollY;
+
+      if (currentScrollTop < previousScrollTop) {
+        if (scrollTop <= 260) {
+          mainNav.classList.add("scroll-up-navigation");
+        }
+        if (scrollTop <= 180) {
+          mainNav.classList.remove("scroll-up-navigation");
+        }
+      }
+
+      previousScrollTop = currentScrollTop;
+
+      if (scrollTop >= 160) {
+        mainNav.classList.add("menu-fixed");
+      } else {
+        mainNav.classList.remove("menu-fixed");
+      }
+    }
+
+    window.addEventListener("scroll", mainNavScroll);
   }
+});
 
-  window.addEventListener("scroll", mainNavScroll);
-
+/**
+ * Smooth scroll (a.scroll-down)
+ */
+$.when($.ready).then(function () {
   function removeHashFromURL() {
     if (window.location.hash) {
       history.replaceState(

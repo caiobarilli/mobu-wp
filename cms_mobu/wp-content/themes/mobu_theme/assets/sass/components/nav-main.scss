@@ -178,7 +178,7 @@
 .menu-fixed
 {
     position: fixed !important;
-    animation: moveDownNavigation 1s linear forwards;
+    animation: moveDownNavigation 800ms linear forwards;
 }
 
 @keyframes moveDownNavigation {
@@ -192,7 +192,7 @@
 
 .scroll-up-navigation
 {
-    animation: moveUpNavigation 200ms linear forwards;
+    animation: moveUpNavigation 500ms linear forwards;
 }
 
 @keyframes moveUpNavigation {
