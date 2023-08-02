@@ -6,6 +6,21 @@ import { Navigation, Pagination } from "swiper/modules";
  * Smooth scroll (a.scroll-down)
  */
 $.when($.ready).then(function () {
+  const menu = document.getElementById("main-nav"),
+    menuOffsetTop = menu.offsetTop + 20;
+
+  function mainNavScroll() {
+    const scrollTop = window.scrollY;
+
+    if (scrollTop >= menuOffsetTop) {
+      menu.classList.add("menu-fixed");
+    } else {
+      menu.classList.remove("menu-fixed");
+    }
+  }
+
+  window.addEventListener("scroll", mainNavScroll);
+
   function removeHashFromURL() {
     if (window.location.hash) {
       history.replaceState(
@@ -24,7 +39,7 @@ $.when($.ready).then(function () {
       event.preventDefault();
     } else {
       $(this).smoothScroll({
-        offset: 0,
+        offset: -120,
         direction: "top",
         scrollTarget: null,
         autoFocus: false,
