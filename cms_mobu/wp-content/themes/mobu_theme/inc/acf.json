@@ -1,7 +1,7 @@
 [
     {
         "key": "group_64adefa57de8c",
-        "title": "Campos da Diciplina",
+        "title": "Box (mouse hover)",
         "fields": [
             {
                 "key": "field_64adefa517fd4",
@@ -45,7 +45,7 @@
             },
             {
                 "key": "field_64adf00307593",
-                "label": "Texto",
+                "label": "Resumo",
                 "name": "text_discipline",
                 "aria-label": "",
                 "type": "textarea",
@@ -133,50 +133,6 @@
         "show_in_rest": 0
     },
     {
-        "key": "group_64b02cccb9340",
-        "title": "Campos do Post",
-        "fields": [
-            {
-                "key": "field_64b02cccb23c1",
-                "label": "Video (embed)",
-                "name": "post_video_embed",
-                "aria-label": "",
-                "type": "textarea",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "rows": "",
-                "placeholder": "",
-                "new_lines": ""
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "post"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
-        "show_in_rest": 0
-    },
-    {
         "key": "group_64ade7f0d86b5",
         "title": "Campos do Time",
         "fields": [
@@ -227,6 +183,98 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "team"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_64cad58c09a46",
+        "title": "Link do slider (opcional)",
+        "fields": [
+            {
+                "key": "field_64cad5a500a50",
+                "label": "",
+                "name": "slider_link_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "banner_slider"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_64b02cccb9340",
+        "title": "Video (embed)",
+        "fields": [
+            {
+                "key": "field_64b02cccb23c1",
+                "label": "Video (embed)",
+                "name": "post_video_embed",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "rows": "",
+                "placeholder": "",
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "discipline"
                 }
             ]
         ],

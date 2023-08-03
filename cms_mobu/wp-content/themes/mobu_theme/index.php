@@ -235,6 +235,7 @@ if (isset($_GET['p'])) {
                 <img src="<?php echo $img_course; ?>" alt="imagem ilustrativa" />
             </div>
         </div>
+
         <div class="main-content">
             <div class="wrap-content">
                 <div class="swiper course-slider">
@@ -272,7 +273,6 @@ if (isset($_GET['p'])) {
                             );
 
                             $wp_query = new WP_Query($args);
-
 
                             if ($wp_query->have_posts()) :
                                 echo '<div class="swiper-slide">';
@@ -384,6 +384,9 @@ if (isset($_GET['p'])) {
                                                                     <rect fill="#3C6399" width="81" height="71" />
                                                                     <polygon fill="#FFFFFF" points="63,34.167 41,34.167 41,12.167 39,12.167 39,34.167 17,34.167 17,36.167 39,36.167 39,59.167 41,59.167 41,36.167 63,36.167 " />
                                                                 </svg>
+                                                                <form>
+                                                                    <input type="hidden" name="discipline_id" value="<?php echo get_the_ID(); ?>">
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>
@@ -546,6 +549,12 @@ if (isset($_GET['p'])) {
                         </div>
                     <?php endif; ?>
                 </div>
+            </div>
+        </div>
+
+        <div class="single-post-discipline">
+            <span class="backdrop-post-discipline close-post-discipline"></span>
+            <div class="wrap-single-post-discipline">
             </div>
         </div>
     </section>

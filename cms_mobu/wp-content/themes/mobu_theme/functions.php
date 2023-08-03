@@ -173,6 +173,26 @@ function show_post_callback()
         endif;
     }
 
+    if (isset($_POST['disciplineId'])) {
+        $post_id = $_POST['disciplineId'];
+
+        $args = array(
+            'post_type'      => 'discipline',
+            'post_status'    => 'publish',
+            'p'              => $post_id,
+            'posts_per_page' => 1,
+        );
+
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+                get_template_part('template-parts/content', 'discipline');
+            endwhile;
+            wp_reset_postdata();
+        endif;
+    }
+
     wp_die();
 }
 
