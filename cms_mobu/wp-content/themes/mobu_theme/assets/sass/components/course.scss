@@ -373,6 +373,10 @@
                     svg
                     {
                         max-width: 100%;
+                        rect
+                        {
+                            transition: fill 500ms ease;
+                        }
                     }
 
                     &:hover
