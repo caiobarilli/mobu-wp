@@ -326,11 +326,13 @@ if (isset($_GET['p'])) {
                                                                 <?php _e($subtitle_discipline, 'mobu_theme') ?>
                                                             </h3>
                                                         </div>
-                                                        <div class="text">
-                                                            <p>
-                                                                <?php _e(custom_excerpt(2000, $text_discipline), 'mobu_theme') ?>
-                                                            </p>
-                                                        </div>
+                                                        <?php if (!wp_is_mobile()) : ?>
+                                                            <div class="text">
+                                                                <p>
+                                                                    <?php _e(custom_excerpt(2000, $text_discipline), 'mobu_theme') ?>
+                                                                </p>
+                                                            </div>
+                                                        <?php endif; ?>
                                                     </div>
                                                     <div class="ico-course">
                                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="71px" viewBox="0 0 81 71" enable-background="new 0 0 81 71" xml:space="preserve">
@@ -373,11 +375,13 @@ if (isset($_GET['p'])) {
                                                                         <?php _e($subtitle_discipline, 'mobu_theme') ?>
                                                                     </h3>
                                                                 </div>
-                                                                <div class="text">
-                                                                    <p>
-                                                                        <?php _e(custom_excerpt(400, $text_discipline), 'mobu_theme') ?>
-                                                                    </p>
-                                                                </div>
+                                                                <?php if (!wp_is_mobile()) : ?>
+                                                                    <div class="text">
+                                                                        <p>
+                                                                            <?php _e(custom_excerpt(400, $text_discipline), 'mobu_theme') ?>
+                                                                        </p>
+                                                                    </div>
+                                                                <?php endif; ?>
                                                             </div>
                                                             <div class="ico-course">
                                                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="71px" viewBox="0 0 81 71" enable-background="new 0 0 81 71" xml:space="preserve">
@@ -418,11 +422,13 @@ if (isset($_GET['p'])) {
                                                                         <?php _e($subtitle_discipline, 'mobu_theme') ?>
                                                                     </h3>
                                                                 </div>
-                                                                <div class="text">
-                                                                    <p>
-                                                                        <?php _e(custom_excerpt(400, $text_discipline), 'mobu_theme') ?>
-                                                                    </p>
-                                                                </div>
+                                                                <?php if (!wp_is_mobile()) : ?>
+                                                                    <div class="text">
+                                                                        <p>
+                                                                            <?php _e(custom_excerpt(400, $text_discipline), 'mobu_theme') ?>
+                                                                        </p>
+                                                                    </div>
+                                                                <?php endif; ?>
                                                                 <div class="ico-course">
                                                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="71px" viewBox="0 0 81 71" enable-background="new 0 0 81 71" xml:space="preserve">
                                                                         <rect fill="#3C6399" width="81" height="71" />
@@ -464,11 +470,13 @@ if (isset($_GET['p'])) {
                                                                     <?php _e($subtitle_discipline, 'mobu_theme') ?>
                                                                 </h3>
                                                             </div>
-                                                            <div class="text">
-                                                                <p>
-                                                                    <?php _e(custom_excerpt(1100, $text_discipline), 'mobu_theme') ?>
-                                                                </p>
-                                                            </div>
+                                                            <?php if (!wp_is_mobile()) : ?>
+                                                                <div class="text">
+                                                                    <p>
+                                                                        <?php _e(custom_excerpt(1100, $text_discipline), 'mobu_theme') ?>
+                                                                    </p>
+                                                                </div>
+                                                            <?php endif; ?>
                                                             <div class="ico-course">
                                                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="71px" viewBox="0 0 81 71" enable-background="new 0 0 81 71" xml:space="preserve">
                                                                     <rect fill="#3C6399" width="81" height="71" />
@@ -510,11 +518,13 @@ if (isset($_GET['p'])) {
                                                                 <?php _e($subtitle_discipline, 'mobu_theme') ?>
                                                             </h3>
                                                         </div>
-                                                        <div class="text">
-                                                            <p>
-                                                                <?php _e(custom_excerpt(800, $text_discipline), 'mobu_theme') ?>
-                                                            </p>
-                                                        </div>
+                                                        <?php if (!wp_is_mobile()) : ?>
+                                                            <div class="text">
+                                                                <p>
+                                                                    <?php _e(custom_excerpt(800, $text_discipline), 'mobu_theme') ?>
+                                                                </p>
+                                                            </div>
+                                                        <?php endif; ?>
                                                         <div class="ico-course">
                                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="71px" viewBox="0 0 81 71" enable-background="new 0 0 81 71" xml:space="preserve">
                                                                 <rect fill="#3C6399" width="81" height="71" />
