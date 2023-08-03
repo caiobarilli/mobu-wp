@@ -241,6 +241,7 @@ if (isset($_GET['p'])) {
                     <div class="swiper-wrapper">
                         <?php
 
+                        $count;
                         $categories_with_posts = array();
                         $categories = get_terms(array(
                             'taxonomy' => 'modules',
@@ -327,7 +328,7 @@ if (isset($_GET['p'])) {
                                                         </div>
                                                         <div class="text">
                                                             <p>
-                                                                <?php _e($text_discipline, 'mobu_theme') ?>
+                                                                <?php _e(custom_excerpt(2000, $text_discipline), 'mobu_theme') ?>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -336,6 +337,9 @@ if (isset($_GET['p'])) {
                                                             <rect fill="#3C6399" width="81" height="71" />
                                                             <polygon fill="#FFFFFF" points="63,34.167 41,34.167 41,12.167 39,12.167 39,34.167 17,34.167 17,36.167 39,36.167 39,59.167 41,59.167 41,36.167 63,36.167 " />
                                                         </svg>
+                                                        <form>
+                                                            <input type="hidden" name="discipline_id" value="<?php echo get_the_ID(); ?>">
+                                                        </form>
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
@@ -371,7 +375,7 @@ if (isset($_GET['p'])) {
                                                                 </div>
                                                                 <div class="text">
                                                                     <p>
-                                                                        <?php _e($text_discipline, 'mobu_theme') ?>
+                                                                        <?php _e(custom_excerpt(400, $text_discipline), 'mobu_theme') ?>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -413,7 +417,7 @@ if (isset($_GET['p'])) {
                                                                 </div>
                                                                 <div class="text">
                                                                     <p>
-                                                                        <?php _e($text_discipline, 'mobu_theme') ?>
+                                                                        <?php _e(custom_excerpt(400, $text_discipline), 'mobu_theme') ?>
                                                                     </p>
                                                                 </div>
                                                                 <div class="ico-course">
@@ -421,6 +425,9 @@ if (isset($_GET['p'])) {
                                                                         <rect fill="#3C6399" width="81" height="71" />
                                                                         <polygon fill="#FFFFFF" points="63,34.167 41,34.167 41,12.167 39,12.167 39,34.167 17,34.167 17,36.167 39,36.167 39,59.167 41,59.167 41,36.167 63,36.167 " />
                                                                     </svg>
+                                                                    <form>
+                                                                        <input type="hidden" name="discipline_id" value="<?php echo get_the_ID(); ?>">
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -456,7 +463,7 @@ if (isset($_GET['p'])) {
                                                             </div>
                                                             <div class="text">
                                                                 <p>
-                                                                    <?php _e($text_discipline, 'mobu_theme') ?>
+                                                                    <?php _e(custom_excerpt(1100, $text_discipline), 'mobu_theme') ?>
                                                                 </p>
                                                             </div>
                                                             <div class="ico-course">
@@ -464,6 +471,9 @@ if (isset($_GET['p'])) {
                                                                     <rect fill="#3C6399" width="81" height="71" />
                                                                     <polygon fill="#FFFFFF" points="63,34.167 41,34.167 41,12.167 39,12.167 39,34.167 17,34.167 17,36.167 39,36.167 39,59.167 41,59.167 41,36.167 63,36.167 " />
                                                                 </svg>
+                                                                <form>
+                                                                    <input type="hidden" name="discipline_id" value="<?php echo get_the_ID(); ?>">
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -499,7 +509,7 @@ if (isset($_GET['p'])) {
                                                         </div>
                                                         <div class="text">
                                                             <p>
-                                                                <?php _e($text_discipline, 'mobu_theme') ?>
+                                                                <?php _e(custom_excerpt(800, $text_discipline), 'mobu_theme') ?>
                                                             </p>
                                                         </div>
                                                         <div class="ico-course">
@@ -507,6 +517,9 @@ if (isset($_GET['p'])) {
                                                                 <rect fill="#3C6399" width="81" height="71" />
                                                                 <polygon fill="#FFFFFF" points="63,34.167 41,34.167 41,12.167 39,12.167 39,34.167 17,34.167 17,36.167 39,36.167 39,59.167 41,59.167 41,36.167 63,36.167 " />
                                                             </svg>
+                                                            <form>
+                                                                <input type="hidden" name="discipline_id" value="<?php echo get_the_ID(); ?>">
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -527,9 +540,11 @@ if (isset($_GET['p'])) {
 
                         ?>
                     </div>
-                    <div class="wrap-pagination">
-                        <div class="swiper-pagination"></div>
-                    </div>
+                    <?php if (count($categories_with_posts) >= 2) : ?>
+                        <div class="wrap-pagination">
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
