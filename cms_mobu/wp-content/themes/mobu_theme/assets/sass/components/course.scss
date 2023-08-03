@@ -292,7 +292,6 @@
             {
                 overflow: hidden;
                 position: relative;
-                cursor: pointer;
 
                 .front-course
                 {
@@ -369,6 +368,23 @@
                     position: absolute;
                     right: 10px;
                     bottom: 10px;
+                    cursor: pointer;
+
+                    svg
+                    {
+                        max-width: 100%;
+                    }
+
+                    &:hover
+                    {
+                        svg
+                        {
+                            rect
+                            {
+                                fill: $yellow_6;
+                            }
+                        }
+                    }
                 }
             }
 
