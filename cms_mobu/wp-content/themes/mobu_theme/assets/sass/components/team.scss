@@ -228,3 +228,34 @@
 
     }
 }
+
+// Animation
+.show-anim
+{
+    display: block !important;
+    animation: showAnimation 1s linear forwards;
+}
+
+.hide-anim
+{
+    display: none !important;
+    animation: hideAnimation 500ms linear forwards;
+}
+
+@keyframes showAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hideAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

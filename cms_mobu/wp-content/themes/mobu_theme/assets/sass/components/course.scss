@@ -129,154 +129,216 @@
             width: 100%;
         }
 
-        .course-slider
+
+        .wrap-slider-cursos
         {
-            .swiper-wrapper
+            height: 100%;
+            margin: 0;
+
+            .grid-container
             {
-                padding-bottom: 40px;
+                display: grid;
+                grid-template-columns: 662px;
+                grid-template-rows: 550px 660px 330px;
+                gap: 0px 0px;
+                grid-auto-flow: row;
+                grid-template-areas:
+                "TopGridWrapper"
+                "MidGridWrapper"
+                "BotGridWrapper";
+                height: 100%;
+                margin: 0;
 
-                .swiper-slide
+                .TopGridWrapper
                 {
-                    .wrap-slider-cursos
-                    {
-                        width: 660px;
-                        max-width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    gap: 0px 0px;
+                    grid-auto-flow: row;
+                    grid-template-areas:
+                    ".";
+                    grid-area: TopGridWrapper;
+                    overflow: hidden;
+                    position: relative;
+                }
 
-                        @include media-breakpoint-down(xl)
-                        {
-                            width: 95%;
-                        }
+                .MidGridWrapper
+                {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr;
+                    gap: 0px 0px;
+                    grid-auto-flow: row;
+                    grid-template-areas:
+                    "LeftMidGridWrap RightMidGridWrap";
+                    grid-area: MidGridWrapper;
+                    overflow: hidden;
+                }
 
-                        img
-                        {
-                            height: 100%;
-                            width: 100%;
-                        }
+                .LeftMidGridWrap
+                {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    gap: 0px 0px;
+                    grid-auto-flow: row;
+                    grid-template-areas:
+                    "TopLeftMidGridWrap"
+                    "BotLeftMidGridWrap";
+                    grid-area: LeftMidGridWrap;
+                    overflow: hidden;
+                }
 
-                        .wrap-posts-middle
-                        {
-                            display: flex;
-                            flex-direction: row;
-                        }
+                .TopLeftMidGridWrap
+                {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    gap: 0px 0px;
+                    grid-auto-flow: row;
+                    grid-template-areas:
+                    ".";
+                    grid-area: TopLeftMidGridWrap;
+                    overflow: hidden;
+                }
 
-                        .wrap-post-right-retangular
-                        {
-                            width: 50%;
-                        }
+                .BotLeftMidGridWrap
+                {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    gap: 0px 0px;
+                    grid-auto-flow: row;
+                    grid-template-areas:
+                    ".";
+                    grid-area: BotLeftMidGridWrap;
+                    overflow: hidden;
+                }
 
-                        .wrap-post-left-square
-                        {
-                            width: 50%;
-                            .wrap-post
-                            {
-                                height: 50%;
-                            }
-                        }
+                .RightMidGridWrap
+                {
+                    grid-area: RightMidGridWrap;
+                    overflow: hidden;
+                }
 
-                        .wrap-post
-                        {
-                            display: flex;
-                            flex-direction: column;
-                            position: relative;
-                            height: 100%;
+                .BotGridWrapper
+                {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    gap: 0px 0px;
+                    grid-auto-flow: row;
+                    grid-template-areas:
+                    ".";
+                    grid-area: BotGridWrapper;
+                    overflow: hidden;
+                }
 
-                            .title-category
-                            {
-                                display: flex;
-                                flex-direction: row;
-                                flex-wrap: wrap;
-                                align-content: center;
-                                justify-content: center;
-                                background: $yellow_6;
-                                min-height: 110px;
-                                padding: 10px;
+                .grid-container *
+                {
+                    border: 1px solid red;
+                    position: relative;
+                }
 
-                                h2
-                                {
-                                    font-size: 2.8rem;
-                                    font-weight: 700;
-                                }
-                            }
-
-                            .front-course
-                            {
-                                display: block;
-                                opacity: 1;
-                                height: 100%;
-                                img
-                                {
-                                    max-width: 100%;
-                                }
-
-                            }
-
-                            .back-course
-                            {
-                                display: none;
-                                opacity: 0;
-
-                                background: $blue_1;
-
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-
-                                height: 100%;
-                                width: 100%;
-                                padding: 10px;
-
-                                .title
-                                {
-                                    h2
-                                    {
-                                        font-size: 1.75rem;
-                                        font-weight: 300;
-                                        color: $white;
-                                    }
-
-                                    h3
-                                    {
-                                        font-size: 1.75rem;
-                                        font-weight: 300;
-                                        color: $white;
-                                        margin: 15px 0;
-
-
-                                        strong
-                                        {
-                                            display: block;
-                                            font-size: 1.75rem;
-                                            font-weight: 700;
-                                        }
-                                    }
-                                }
-
-                                .text
-                                {
-                                    p
-                                    {
-                                        font-size: 1.2rem;
-                                        font-weight: 500;
-                                        color: $white;
-                                    }
-                                }
-
-                                .ico-course
-                                {
-                                    opacity: 0;
-                                    width: 80px;
-                                    height: auto;
-                                    position: absolute;
-                                    right: 10px;
-                                    bottom: 10px;
-                                }
-
-                            }
-
-                        }
-                    }
+                .grid-container *:after
+                {
+                    content:attr(class);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: grid;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
+
+            .wrap-courses
+            {
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+
+                .front-course
+                {
+                    display: block;
+                    opacity: 1;
+
+                    img
+                    {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .back-course
+                {
+                    background: $blue_1;
+
+                    display: none;
+                    opacity: 0;
+
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    height: 100%;
+                    width: 100%;
+                    padding: 10px;
+
+                    .title
+                    {
+                        h2
+                        {
+                            font-size: 1.75rem;
+                            font-weight: 300;
+                            color: $white;
+                        }
+
+                        h3
+                        {
+                            font-size: 1.75rem;
+                            font-weight: 300;
+                            color: $white;
+                            margin: 15px 0;
+
+
+                            strong
+                            {
+                                display: block;
+                                font-size: 1.75rem;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+
+                    .text
+                    {
+                        p
+                        {
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                            color: $white;
+                        }
+                    }
+
+
+                }
+
+                .ico-course
+                {
+                    opacity: 0;
+                    width: 80px;
+                    height: auto;
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                }
+            }
+
         }
 
         .wrap-pagination
@@ -285,7 +347,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: flex-end;
-            width: 660px;
+            width: 662px;
             max-width: 100%;
 
             @include media-breakpoint-down(xl)
@@ -305,7 +367,7 @@
                 background: rgba(0, 0, 0, 0.7);
                 width: fit-content !important;
                 padding: 10px;
-                top: -40px;
+                top: 0;
 
                 @include media-breakpoint-down(md)
                 {
