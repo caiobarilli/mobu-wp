@@ -287,7 +287,6 @@ if (isset($_GET['p'])) {
 
                         ?>
 
-
                                     <?php
 
                                     /*
@@ -299,6 +298,15 @@ if (isset($_GET['p'])) {
                                     ?>
                                         <div class="wrap-slider-cursos">
                                             <div class="grid-container">
+
+                                                <div class="CatNameGridWrapper">
+                                                    <div class="title-category">
+                                                        <h2>
+                                                            <?php _e($category->name, 'mobu_theme') ?>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+
                                                 <div class="TopGridWrapper wrap-courses">
                                                     <div class="front-course">
                                                         <?php if (has_post_thumbnail()) : ?>

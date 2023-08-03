@@ -62,7 +62,7 @@ $.when($.ready).then(function () {
       event.preventDefault();
     } else {
       $(this).smoothScroll({
-        offset: 210,
+        offset: -100,
         direction: "top",
         scrollTarget: null,
         autoFocus: false,
